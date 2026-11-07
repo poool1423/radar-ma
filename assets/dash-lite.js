@@ -38,7 +38,11 @@
   const runAll = () => Object.keys(draws).forEach(runDraw);
 
   window.dash = {
-    colors: ['#c4673f', '#3d6fb4', '#5a9a62', '#b48a2c', '#8a5bb4', '#3a9aa0', '#b4505f', '#6f7a86'],
+    get colors() {
+      const cs = getComputedStyle(document.documentElement);
+      const v = (n, d) => (cs.getPropertyValue(n).trim() || d);
+      return [v('--rd-accent', '#c4673f'), v('--rd-accent-2', '#3d6fb4'), '#5a9a62', '#b48a2c', '#8a5bb4', '#3a9aa0', '#b4505f', '#6f7a86'];
+    },
     data: (id) => store[id] || { status: ready ? 'missing' : 'loading', data: [] },
     calc: (id, def) => { calcs[id] = def; store[id] = { status: 'loading', data: [] }; },
     draw: (name, fn) => {

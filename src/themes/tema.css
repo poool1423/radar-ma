@@ -1,0 +1,28 @@
+/* Tema de la web: cabecera "Banca clásica" + cifras de colores "Fintech" */
+:root {
+  --rd-accent: #b08a3e; --rd-accent-2: #13294b;
+  --font-anthropic-serif: Georgia, 'Times New Roman', serif;
+  --color-fg: #14213d; --color-fg-muted: #5b6577; --color-bg: #f4f1ea; --color-panel: #ffffff; --color-border-line: #e2ddd2;
+  --color-ok: #1f6b45; --color-warn: #9a6a12; --color-bad: #a8382a;
+  --cds-surface-popover: #fff; --cds-border: #e2ddd2; --cds-text-secondary: #5b6577; --cds-shadow-popover: 0 6px 24px rgba(0,0,0,.12);
+  --cds-chart-muted: #c9cfd9; --cds-chart-grid: #ece8df; --cds-chart-axis: #b8bfcc;
+  color-scheme: light;
+}
+/* Cabecera azul marino con línea dorada */
+#dash-root .rd-head { background: #13294b; color: #fff; border-radius: 12px; padding: 28px 32px; border-bottom: 4px solid #b08a3e; }
+#dash-root .rd-head .rd-title { color: #fff; letter-spacing: .2px; }
+#dash-root .rd-head .rd-lede { color: #c9d3e3; }
+#dash-root .rd .rd-head .rd-lede b { color: #e8c983; }
+#dash-root .site-aviso { border-left: 4px solid #b08a3e; }
+/* Cifras de colores */
+#dash-root .rd-tile { --tile: #4338ca; border-top: 3px solid var(--tile); box-shadow: 0 1px 2px rgba(20,33,61,.05), 0 4px 14px rgba(20,33,61,.05); }
+#dash-root .rd-tile-num { font-family: var(--font-anthropic-sans); font-weight: 700; color: var(--tile); }
+#dash-root .rd-tiles .rd-tile:nth-child(2) { --tile: #12b5a5; }
+#dash-root .rd-tiles .rd-tile:nth-child(3) { --tile: #dc6803; }
+#dash-root .rd-tiles .rd-tile:nth-child(4) { --tile: #d92d6d; }
+#dash-root .rd-tiles .rd-tile:nth-child(5) { --tile: #b08a3e; }
+#dash-root .rd-tiles .rd-tile:nth-child(6) { --tile: #079455; }
+/* Pestañas, tarjetas y tablas en el estilo de la cabecera */
+#dash-root .rd-tab[aria-selected='true'] { color: #13294b; border-bottom-color: #b08a3e; font-weight: 600; }
+#dash-root .rd-card h3, #dash-root .rd-pair { color: #13294b; }
+#dash-root .rd-table th { background: #13294b; color: #fff; }
