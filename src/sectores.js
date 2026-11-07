@@ -5,11 +5,14 @@
     it: {
       label: 'IT y software B2B', dir: 'data/', vpe: 0.12, margen: 0.10, dia: 'lunes', regiones: false,
       rango: 'ago-2024 a oct-2026',
+      multiplos: { bajo: 5.5, alto: 10, texto: 'Rango de las tres operaciones de la base con EV y EBITDA publicados (5,5x, 6,9x y 10x).' },
       fuentes: 'Baker Tilly Tech M&A España, prensa económica, BORME, CNMV, BME Growth y webs públicas de las empresas.',
     },
     alimentacion: {
       label: 'Alimentación y bebidas', dir: 'data/alimentacion/', vpe: 0.18, margen: 0.08, dia: 'martes', regiones: true,
       rango: 'nov-2024 a jul-2026',
+      multiplos: { bajo: 6, alto: 8.5, texto: '8,5x es la media de las operaciones de consumo y retail en España en 2025 según EY-Parthenon; 6x es un supuesto propio de descuento para empresas familiares pequeñas.' },
+      mult_ref: 8.5, mult_ref_fuente: 'media de consumo y retail en España en 2025 (EY-Parthenon); ninguna operación de la base publica EV y EBITDA',
       fuentes: 'Alimarket, capital-riesgo.es, Albia IMAP, prensa económica, ranking de elEconomista, ACCIÓ, BORME y webs públicas de las empresas.',
     },
   };

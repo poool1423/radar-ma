@@ -1,0 +1,58 @@
+[
+ {
+  "target": "Avícola Moraleja (Avimosa)",
+  "comprador": "Plukon Food Group",
+  "fecha_venta": "2026-05",
+  "ventas": 56,
+  "pts_tamano": 2,
+  "pts_compradores": 3,
+  "pts_senal": 2,
+  "pts_datos": 1,
+  "total": 8,
+  "prioridad": "Alta",
+  "por_que": "Tamaño 2: 56 M€ dentro del rango. Compradores 3: Plukon ya había comprado cuatro avícolas en España, y Grupo Fuertes y Uvesa también consolidaban. Señal 2: empresa centenaria con varias generaciones y sin sucesor visible. Datos 1: plantilla y ventas aproximadas.",
+  "fuente": "https://www.plukon.com/?p=2508"
+ },
+ {
+  "target": "Cárnicas Sierra de Toranzo",
+  "comprador": "Veturia Meat Group",
+  "fecha_venta": "2026-07",
+  "ventas": 14,
+  "pts_tamano": 2,
+  "pts_compradores": 3,
+  "pts_senal": 1,
+  "pts_datos": 1,
+  "total": 7,
+  "prioridad": "Media",
+  "por_que": "Tamaño 2: 14 M€. Compradores 3: Veturia, Incarlopsa y Palacios compraban embutidores. Señal 1: familiar, sin señales públicas. Datos 1: ventas sin cuentas detalladas.",
+  "fuente": "Prensa sectorial (enlace por añadir)"
+ },
+ {
+  "target": "Café Saula",
+  "comprador": "Pascual",
+  "fecha_venta": "2024-11",
+  "ventas": 9,
+  "pts_tamano": 1,
+  "pts_compradores": 2,
+  "pts_senal": 2,
+  "pts_datos": 1,
+  "total": 6,
+  "prioridad": "Media",
+  "por_que": "Tamaño 1: unos 50 empleados, estimación justo por debajo de 10 M€. Compradores 2: Pascual y Delta buscaban marcas de café para hostelería. Señal 2: 2ª generación al frente y sin 3ª visible. Datos 1: plantilla conocida, ventas antiguas.",
+  "fuente": "https://es.ara.cat/economia/alimentacion/pascual-compra-historica-empresa-catalana-cafes-saula_1_5191039.html"
+ },
+ {
+  "target": "Triticum (L'Essència del Blat)",
+  "comprador": "Monbake",
+  "fecha_venta": "2026-04",
+  "ventas": 10,
+  "pts_tamano": 1,
+  "pts_compradores": 2,
+  "pts_senal": 1,
+  "pts_datos": 1,
+  "total": 5,
+  "prioridad": "Media",
+  "por_que": "Tamaño 1: 60 empleados, estimación en el límite del rango. Compradores 2: Monbake y Europastry. Señal 1: fundadores activos, sin sucesión. Datos 1: plantilla conocida.",
+  "fuente": "https://capital-riesgo.es/es/articles/monbake-participada-por-cvc-adquiere-triticum/"
+ }
+]

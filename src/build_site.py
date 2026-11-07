@@ -39,7 +39,38 @@ bar = """<div id='site-bar' class='site-bar'>
 aviso = ("<p class='site-aviso'>Radar de originación M&amp;A elaborado por Pol a partir de fuentes públicas y gratuitas. "
          "Las propuestas comprador → target son hipótesis propias para validar, no recomendaciones de inversión. "
          "Datos actualizados cada <b>lunes</b>.</p>\n")
-body = body.replace("  </header>\n", "  </header>\n  " + bar + "  " + aviso, 1)
+body = body.replace("  </header>\n", "  </header>\n  " + bar + "  " + aviso + "  <div class='site-novedades' data-draw='novedades'></div>\n", 1)
+
+def inject(body, marker, html, after=True):
+    i = body.index(marker)
+    j = i + len(marker) if after else i
+    return body[:j] + html + body[j:]
+
+def before_section_end(body, sec_id, html):
+    i = body.index("id='" + sec_id + "'")
+    j = body.index('</section>', i)
+    return body[:j] + html + body[j:]
+
+# Memos en Propuestas (tras el párrafo de introducción)
+i = body.index("id='propuestas'")
+j = body.index('</p>', i) + 4
+body = body[:j] + "\n    <div class='site-memos' data-draw='memo_lista'></div>" + body[j:]
+# Valoración orientativa en Targets
+body = before_section_end(body, 'targets', """
+    <div class='rd-card site-valor'>
+      <h3>Valoración orientativa</h3>
+      <p class='rd-note' data-draw='valor_nota'></p>
+      <div class='rd-tablebox'><table class='rd-table' data-draw='tb_valor'></table></div>
+    </div>
+""")
+# Validación de la puntuación en Leyenda
+body = before_section_end(body, 'leyenda', """
+    <div class='rd-card site-valid'>
+      <h3>¿Funciona la puntuación? Validación con empresas ya vendidas</h3>
+      <p class='rd-note' data-draw='validacion_resumen'></p>
+      <div class='rd-tablebox'><table class='rd-table' data-draw='tb_validacion'></table></div>
+    </div>
+""")
 
 foot = """
 <footer class='site-foot'>
@@ -51,6 +82,7 @@ foot = """
     <button type='button' data-csv='empresas'>Fichas de empresa</button>
     <button type='button' data-csv='deals'>Precedentes</button>
     <button type='button' data-csv='registro'>Cambios</button>
+    <button type='button' data-csv='validacion'>Validación</button>
   </div>
   <div class='site-fuentes'></div>
 </footer>
@@ -88,14 +120,19 @@ html = f"""<!DOCTYPE html>
 {portada}
 {body}
 {foot}
+<dialog id="memo" class="memo">
+  <div class="memo-bar"><button type="button" class="memo-imprimir">Imprimir o guardar en PDF</button><button type="button" class="memo-cerrar">Cerrar</button></div>
+  <div class="memo-body"></div>
+</dialog>
 </div>
+<script src="assets/extras.js"></script>
 </body>
 </html>
 """
 os.makedirs(os.path.join(out, 'assets'), exist_ok=True)
 os.makedirs(os.path.join(out, 'data'), exist_ok=True)
 open(os.path.join(out, 'index.html'), 'w', encoding='utf-8').write(html)
-for f in ('dash-lite.js', 'sectores.js', 'tokens.css'):
+for f in ('dash-lite.js', 'sectores.js', 'extras.js', 'tokens.css'):
     shutil.copy(os.path.join(here, f), os.path.join(out, 'assets', f))
 shutil.copy(os.path.join(here, 'themes', 'tema.css'), os.path.join(out, 'assets', 'tema.css'))
 for dp, _, files in os.walk(data_dir):

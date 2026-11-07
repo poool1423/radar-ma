@@ -1,7 +1,7 @@
 // dash-lite: versión mínima del entorno del dashboard para la web pública.
 // Carga los JSON de /data, calcula los "calc" y ejecuta los "draw" de la página.
 (function () {
-  const DATASETS = ['deals', 'compradores', 'targets', 'propuestas', 'empresas', 'registro'];
+  const DATASETS = ['deals', 'compradores', 'targets', 'propuestas', 'empresas', 'registro', 'validacion'];
   const store = {};      // id -> {status, data}
   const calcs = {};      // id -> {inputs, fn}
   const draws = {};      // name -> fn

@@ -1,0 +1,58 @@
+[
+ {
+  "target": "Ednon",
+  "comprador": "Altia",
+  "fecha_venta": "2026-07",
+  "ventas": 18.2,
+  "pts_tamano": 2,
+  "pts_compradores": 3,
+  "pts_senal": 1,
+  "pts_datos": 2,
+  "total": 8,
+  "prioridad": "Alta",
+  "por_que": "Tamaño 2: 18,2 M€ publicados. Compradores 3: Altia, Izertis y otros integradores compraban capacidades de datos y ciberseguridad. Señal 1: sin señales públicas antes de la venta. Datos 2: cuentas y plantilla publicadas.",
+  "fuente": "Ver precedente #65"
+ },
+ {
+  "target": "Anzen",
+  "comprador": "Izertis",
+  "fecha_venta": "2026-06",
+  "ventas": 5.62,
+  "pts_tamano": 2,
+  "pts_compradores": 2,
+  "pts_senal": 1,
+  "pts_datos": 2,
+  "total": 7,
+  "prioridad": "Media",
+  "por_que": "Tamaño 2: 5,6 M€ publicados. Compradores 2: Izertis y consolidadores de ciberseguridad. Señal 1: fundadores con plan de crecimiento, sin señal de venta. Datos 2: ventas y plan publicados.",
+  "fuente": "Ver precedente #60"
+ },
+ {
+  "target": "SAPIMSA + Netinex",
+  "comprador": "Lutech",
+  "fecha_venta": "2024-12",
+  "ventas": 10,
+  "pts_tamano": 2,
+  "pts_compradores": 2,
+  "pts_senal": 1,
+  "pts_datos": 1,
+  "total": 6,
+  "prioridad": "Media",
+  "por_que": "Tamaño 2: unos 10 M€ entre las dos. Compradores 2: consolidadores de partners SAP. Señal 1: sin señales públicas. Datos 1: ventas agregadas aproximadas.",
+  "fuente": "Ver precedente #3"
+ },
+ {
+  "target": "Marosa",
+  "comprador": "Wolters Kluwer",
+  "fecha_venta": "2026-08",
+  "ventas": 10,
+  "pts_tamano": 1,
+  "pts_compradores": 2,
+  "pts_senal": 1,
+  "pts_datos": 1,
+  "total": 5,
+  "prioridad": "Media",
+  "por_que": "Tamaño 1: ~10 M€ no auditados. Compradores 2: Wolters Kluwer y TeamSystem compraban software fiscal. Señal 1: sin señales públicas. Datos 1: ventas no auditadas.",
+  "fuente": "Ver precedente #76"
+ }
+]

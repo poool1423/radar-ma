@@ -53,5 +53,49 @@
   "valor_nuevo": "0,18 M€ y 8%",
   "motivo": "Calibrado con Cafès Novell, Triticum y Avimosa (0,16–0,22 M€ por empleado); margen de referencia por calibrar",
   "fuente": "Fuentes de cada empresa"
+ },
+ {
+  "id": "A006",
+  "fecha": "2026-11-08",
+  "entidad": "Pascual",
+  "tipo": "Dato",
+  "campo": "Ventas, EBITDA y café 2025",
+  "valor_anterior": "Café ~50 M€ (2024)",
+  "valor_nuevo": "929 M€ de ventas, ~69 M€ de EBITDA, café 90,5 M€",
+  "motivo": "Cifras de 2025 publicadas",
+  "fuente": "https://forbes.es/economia/902209/pascual-aspira-a-los-1-000-millones-en-2027-y-avanza-compras-para-crecer-en-cafe-hidratacion-e-internacional/"
+ },
+ {
+  "id": "A007",
+  "fecha": "2026-11-08",
+  "entidad": "Método",
+  "tipo": "Nuevo",
+  "campo": "Valoración orientativa",
+  "valor_anterior": null,
+  "valor_nuevo": "EV = EBITDA est. × 6x–8,5x",
+  "motivo": "8,5x: media consumo y retail España 2025 (EY-Parthenon); 6x: descuento propio por tamaño",
+  "fuente": "https://www.ey.com/es_es/newsroom/2026/03/la-actividad-de-m-a-en-consumo-y-retail-aumento-un-25-porciento-en-2025"
+ },
+ {
+  "id": "A008",
+  "fecha": "2026-11-08",
+  "entidad": "Método",
+  "tipo": "Nuevo",
+  "campo": "Validación de la puntuación",
+  "valor_anterior": null,
+  "valor_nuevo": "4 de 4 vendidas en prioridad media o alta",
+  "motivo": "Puntuación reconstruida de Avimosa, Sierra de Toranzo, Café Saula y Triticum",
+  "fuente": "Pestaña Leyenda"
+ },
+ {
+  "id": "A009",
+  "fecha": "2026-11-08",
+  "entidad": "Pascual → Cafès Novell",
+  "tipo": "Nuevo",
+  "campo": "Modelo Excel",
+  "valor_anterior": null,
+  "valor_nuevo": "EV central ~21 M€; sinergias ~1,5 M€ de EBITDA",
+  "motivo": "Modelo de valoración, sinergias e impacto en Pascual",
+  "fuente": "modelos/Pascual_Novell_modelo.xlsx"
  }
 ]
