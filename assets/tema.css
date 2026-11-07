@@ -85,3 +85,5 @@ body.sin-sector #dash-root > .rd, body.sin-sector #dash-root > .site-foot { disp
   .memo { position: absolute; inset: 0; width: 100%; max-height: none; box-shadow: none; }
   .memo-bar { display: none; }
 }
+#dash-root .site-home { font-size: 13px; font-weight: 600; color: #13294b; text-decoration: none; padding: 6px 12px; border: 1px solid #b08a3e; border-radius: 8px; background: #fbf7ee; }
+#dash-root .site-home:hover { background: #13294b; color: #fff; }

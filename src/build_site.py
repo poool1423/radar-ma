@@ -31,6 +31,7 @@ portada = """
 </section>
 """
 bar = """<div id='site-bar' class='site-bar'>
+    <a class='site-home' href='./'>← Portada</a>
     <label>Sector <select class='site-sector' aria-label='Sector'><option value='it'>IT y software B2B</option><option value='alimentacion'>Alimentación y bebidas</option></select></label>
     <select class='site-region' aria-label='Región' hidden><option value='cat'>Cataluña</option><option value='es'>Toda España</option></select>
     <span class='site-nota'></span>
