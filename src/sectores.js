@@ -53,6 +53,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('dash-root');
     const portada = document.getElementById('portada');
+    if (!portada) return; // páginas sin portada (memo.html)
     if (!s) { document.body.classList.add('sin-sector'); portada.hidden = false; }
     portada.querySelectorAll('[data-sector]').forEach((b) => b.addEventListener('click', () => go({ s: b.dataset.sector })));
     if (!s) return;

@@ -58,7 +58,7 @@ body.sin-sector #dash-root > .rd, body.sin-sector #dash-root > .site-foot { disp
 /* Memos */
 #dash-root .site-memos { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 4px 0 14px; font-size: 13px; }
 #dash-root .site-memos .ml-t { font-weight: 600; color: #13294b; }
-#dash-root .site-memos .ml-b { font: inherit; font-size: 12px; padding: 5px 10px; border-radius: 999px; border: 1px solid #b08a3e; background: #fff; color: #13294b; cursor: pointer; }
+#dash-root .site-memos .ml-b { text-decoration: none;  font: inherit; font-size: 12px; padding: 5px 10px; border-radius: 999px; border: 1px solid #b08a3e; background: #fff; color: #13294b; cursor: pointer; }
 #dash-root .site-memos .ml-b:hover { background: #13294b; color: #fff; }
 #dash-root .site-valor, #dash-root .site-valid { margin-top: 18px; grid-column: 1 / -1; }
 .memo { width: min(860px, 94vw); max-height: 92vh; border: 0; border-radius: 14px; padding: 0; box-shadow: 0 20px 60px rgba(0,0,0,.35); color: #1c2330; background: #fff; }

@@ -135,9 +135,10 @@
   dash.draw('memo_lista', (el) => {
     const ps = ok('prop_score'), pr = ok('propuestas');
     if (!ps || !pr) return;
-    const orden = pr.slice().sort((a, b) => ((ps.find((x) => x.id === b.id) || {}).total || 0) - ((ps.find((x) => x.id === a.id) || {}).total || 0));
-    el.innerHTML = '<span class="ml-t">Memos de originación (imprimibles):</span>' + orden.slice(0, 6).map((p) =>
-      '<button type="button" class="ml-b" data-memo="' + esc(p.id) + '">' + esc(p.comprador) + ' → ' + esc(p.target) + '</button>').join('');
+    const tot = (p) => (ps.find((x) => x.id === p.id) || {}).total || 0;
+    const sel = pr.filter((p) => tot(p) >= 7).sort((a, b) => tot(b) - tot(a));
+    el.innerHTML = '<span class="ml-t">Memos de originación (solidez 7 o más):</span>' + (sel.length ? sel.map((p) =>
+      '<a class="ml-b" target="_blank" rel="noopener" href="memo.html?s=' + encodeURIComponent(cfg.id) + '&id=' + encodeURIComponent(p.id) + '">' + (p.codigo ? 'Proyecto ' + esc(p.codigo) + ' · ' : '') + esc(p.comprador) + ' → ' + esc(p.target) + ' (' + tot(p) + '/10)</a>').join('') : '<span>ninguna propuesta llega todavía a 7/10.</span>');
   });
   document.addEventListener('click', (e) => {
     const b = e.target.closest('[data-memo]');
