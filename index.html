@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Radar M&amp;A · IT y software B2B España</title>
+<link rel="stylesheet" href="assets/tokens.css">
+<style>
+  .rd { font-family: var(--font-anthropic-sans); color: var(--color-fg); display: grid; gap: var(--cds-gap-lg); }
+  .rd-head { display: grid; gap: var(--cds-gap-xs); }
+  .rd-title { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; }
+  .rd-lede { margin: 0; color: var(--color-fg-muted); font-size: var(--cds-font-size-body); max-width: 60rem; }
+  .rd .rd-lede b { color: var(--color-fg); font-weight: 600; }
+  .rd-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10.5rem), 1fr)); gap: var(--cds-gap-md); }
+  .rd-tile { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-md) var(--cds-pad-lg); display: grid; gap: var(--cds-gap-xs); align-content: start; }
+  .rd-tile-label { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .rd-tile-num { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); font-variant-numeric: tabular-nums; min-height: 1.3em; }
+  .rd-tile-sub { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .rd-tabs { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs); border-bottom: 1px solid var(--color-border-line); }
+  .rd-tab { font: inherit; font-size: var(--cds-font-size-body); background: none; border: 0; border-bottom: 2px solid transparent; color: var(--color-fg-muted); padding: var(--cds-pad-sm) var(--cds-pad-md); cursor: pointer; margin-bottom: -1px; }
+  .rd-tab[aria-selected='true'] { color: var(--color-fg); border-bottom-color: var(--color-fg); }
+  .rd-section { display: grid; gap: var(--cds-gap-md); }
+  .rd-section[hidden] { display: none; }
+  .rd-intro { margin: 0; color: var(--color-fg-muted); max-width: 60rem; font-size: var(--cds-font-size-body); }
+  .rd-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: var(--cds-gap-md); }
+  .rd-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); display: grid; gap: var(--cds-gap-sm); align-content: start; min-width: 0; }
+  .rd-card h3 { margin: 0; font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); }
+  .rd-note { margin: 0; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+  .rd-chart { position: relative; min-height: 220px; }
+  .rd-tip { position: absolute; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); pointer-events: none; white-space: nowrap; }
+  .rd-tip-k { color: var(--cds-text-secondary); }
+  .rd-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); gap: var(--cds-gap-md); min-height: 200px; }
+  .rd-prop-head { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs) var(--cds-gap-sm); align-items: baseline; }
+  .rd-pair { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin-right: auto; }
+  .rd-badge { font-size: var(--cds-font-size-caption); border: 1px solid var(--color-border-line); border-radius: 999px; padding: 0 var(--cds-pad-sm); color: var(--color-fg-muted); white-space: nowrap; }
+  .rd-badge.rd-sol-hi { color: var(--color-ok); border-color: currentColor; }
+  .rd-badge.rd-sol-lo { color: var(--color-warn); border-color: currentColor; }
+  .rd-tesis { margin: 0; font-size: var(--cds-font-size-body); }
+  .rd-dl { margin: 0; display: grid; grid-template-columns: minmax(6.5rem, max-content) 1fr; gap: var(--cds-gap-xs) var(--cds-gap-md); font-size: var(--cds-font-size-caption); }
+  .rd-dl dt { color: var(--color-fg-muted); }
+  .rd-dl dd { margin: 0; }
+  .rd-meta { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .rd-tablebox { overflow: auto; max-height: 34rem; border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); }
+  .rd-table { border-collapse: collapse; width: 100%; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+  .rd-table th { position: sticky; top: 0; background: var(--color-panel); text-align: left; font-weight: var(--cds-font-weight-medium); color: var(--color-fg-muted); padding: var(--cds-pad-xs) var(--cds-pad-sm); border-bottom: 1px solid var(--color-border-line); white-space: nowrap; z-index: 1; }
+  .rd-table td { padding: var(--cds-pad-xs) var(--cds-pad-sm); border-bottom: 1px solid var(--color-border-line); vertical-align: top; }
+  .rd-table td.rd-num, .rd-table th.rd-num { text-align: right; white-space: nowrap; }
+  .rd-table td.rd-wide { min-width: 16rem; }
+  .rd-table td.rd-mid { min-width: 10rem; }
+  .rd-score { display: flex; align-items: center; gap: var(--cds-gap-xs); justify-content: flex-end; }
+  .rd-bar { display: inline-block; height: 0.5rem; border-radius: 2px; background: var(--cds-chart-muted); }
+  .rd-prio-alta { color: var(--color-ok); font-weight: 600; }
+  .rd-prio-media { color: var(--color-warn); }
+  .rd-controls { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm); align-items: center; }
+  .rd-search { font: inherit; font-size: var(--cds-font-size-body); padding: var(--cds-pad-xs) var(--cds-pad-sm); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); background: var(--color-bg); color: var(--color-fg); min-width: min(100%, 16rem); }
+  .rd-fail { display: flex; align-items: center; justify-content: center; gap: var(--cds-gap-xs); color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); min-height: inherit; }
+  .rd-fail::before { content: ''; width: 0.375rem; height: 0.375rem; border-radius: 50%; background: var(--color-bad); }
+  .rd [data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+  .rd-details { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .rd-details summary { cursor: pointer; font-size: var(--cds-font-size-body); color: var(--color-fg); }
+  .rd-details dl { display: grid; grid-template-columns: minmax(8rem, max-content) 1fr; gap: var(--cds-gap-xs) var(--cds-gap-md); }
+  .rd-details dd { margin: 0; }
+  .rd-details b { color: var(--color-fg); }
+  .rd-link { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; text-decoration: underline dotted; text-underline-offset: 3px; }
+  .rd-link:hover { text-decoration-style: solid; }
+  .rd-ficha-panel { position: sticky; top: 0; z-index: 3; background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-lg); max-height: 30rem; overflow: auto; display: grid; gap: var(--cds-gap-sm); }
+  .rd-ficha-panel[hidden] { display: none; }
+  .rd-ficha-top { display: flex; justify-content: space-between; align-items: center; gap: var(--cds-gap-sm); }
+  .rd-ficha-label { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .rd-close { font: inherit; font-size: var(--cds-font-size-caption); background: none; border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); color: var(--color-fg); padding: 0 var(--cds-pad-sm); cursor: pointer; }
+  .rd-ficha { display: grid; gap: var(--cds-gap-sm); }
+  .rd-ficha-head { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm); align-items: baseline; }
+  .rd-ficha-head h3 { margin: 0; font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); }
+  .rd-fi-desc { margin: 0; font-size: var(--cds-font-size-body); max-width: 60rem; }
+  .rd-fi-claves { margin: 0; padding-left: 1.1rem; display: grid; gap: 2px; }
+  .rd-fi-deals { display: grid; gap: 2px; }
+  .rd-fi-nota { margin: 0; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+  #leyenda-solidez { grid-column: 1 / -1; }
+</style>
+<script src="assets/d3.min.js"></script>
+<script src="assets/dash-lite.js"></script>
+</head>
+<body>
+<div id="dash-root">
+<div class='rd'>
+  <header class='rd-head' id='inicio'>
+    <h1 class='rd-title'>Radar M&amp;A · IT y software B2B España</h1>
+    <p class='rd-lede'>Propuesta más sólida ahora: <b data-draw='top_par' data-source='propuestas prop_score'>—</b>. Se apoya en <b data-draw='k_deals_lede' data-source='kpis' data-field='deals' data-row='0'>—</b> operaciones de ago-2024 a oct-2026; último cambio registrado el <b data-draw='k_ultima' data-source='kpis' data-field='ultima' data-row='0'>—</b>.</p>
+  </header>
+  <p class='site-aviso'>Radar de originación M&amp;A elaborado por Pol a partir de fuentes públicas y gratuitas. Las propuestas comprador → target son hipótesis propias para validar, no recomendaciones de inversión. Datos actualizados cada lunes.</p>
+
+  <div class='rd-tiles'>
+    <div class='rd-tile'>
+      <span class='rd-tile-label'>Operaciones en la base</span>
+      <span class='rd-tile-num' data-draw='k_deals' data-source='kpis' data-field='deals' data-row='0'>—</span>
+      <span class='rd-tile-sub'>Precedentes con comprador y target</span>
+    </div>
+    <div class='rd-tile'>
+      <span class='rd-tile-label'>Comprador de capital riesgo</span>
+      <span class='rd-tile-num' data-draw='k_pe' data-source='kpis' data-field='share_pe' data-row='0'>—</span>
+      <span class='rd-tile-sub'>Fondo PE o plataforma PE (add-on)</span>
+    </div>
+    <div class='rd-tile'>
+      <span class='rd-tile-label'>Comprador extranjero</span>
+      <span class='rd-tile-num' data-draw='k_inb' data-source='kpis' data-field='share_inbound' data-row='0'>—</span>
+      <span class='rd-tile-sub'>Operaciones inbound sobre el total</span>
+    </div>
+    <div class='rd-tile'>
+      <span class='rd-tile-label'>Mediana EV / EBITDA</span>
+      <span class='rd-tile-num' data-draw='k_mult' data-source='kpis' data-field='med_ev_ebitda' data-row='0'>—</span>
+      <span class='rd-tile-sub'>Solo <b data-draw='k_mult_n' data-source='kpis' data-field='n_ev_ebitda' data-row='0'>—</b> operaciones con dato</span>
+    </div>
+    <div class='rd-tile'>
+      <span class='rd-tile-label'>Propuestas activas</span>
+      <span class='rd-tile-num' data-draw='k_prop' data-source='kpis' data-field='propuestas' data-row='0'>—</span>
+      <span class='rd-tile-sub'>Parejas comprador → target</span>
+    </div>
+    <div class='rd-tile'>
+      <span class='rd-tile-label'>Targets en prioridad alta</span>
+      <span class='rd-tile-num' data-draw='k_alta' data-source='kpis' data-field='targets_alta' data-row='0'>—</span>
+      <span class='rd-tile-sub'>Puntuación de 8 o más sobre 10</span>
+    </div>
+  </div>
+
+  <nav class='rd-tabs' role='tablist' aria-label='Vistas del radar'>
+    <button class='rd-tab' role='tab' data-tab='propuestas' aria-selected='true'>Propuestas</button>
+    <button class='rd-tab' role='tab' data-tab='mercado' aria-selected='false'>Mercado</button>
+    <button class='rd-tab' role='tab' data-tab='targets' aria-selected='false'>Targets</button>
+    <button class='rd-tab' role='tab' data-tab='compradores' aria-selected='false'>Compradores</button>
+    <button class='rd-tab' role='tab' data-tab='deals' aria-selected='false'>Precedentes</button>
+    <button class='rd-tab' role='tab' data-tab='cambios' aria-selected='false'>Cambios</button>
+    <button class='rd-tab' role='tab' data-tab='leyenda' aria-selected='false'>Leyenda</button>
+  </nav>
+
+  <aside class='rd-ficha-panel' id='ficha' aria-label='Ficha de empresa' hidden>
+    <div class='rd-ficha-top'>
+      <span class='rd-ficha-label'>Ficha de empresa · haz clic en cualquier nombre subrayado para ver otra</span>
+      <button class='rd-close' type='button'>Cerrar</button>
+    </div>
+    <div class='rd-ficha-body' data-draw='ficha' data-source='empresas deals propuestas prop_score'></div>
+    <template class='rd-tpl-ficha'>
+      <div class='rd-ficha'>
+        <div class='rd-ficha-head'><h3 class='rd-fi-nombre'></h3><span class='rd-badge rd-fi-rol'></span></div>
+        <p class='rd-fi-nota rd-fi-sinficha' hidden>Todavía no tiene ficha propia: esto es lo que dice la base de precedentes.</p>
+        <p class='rd-fi-desc'></p>
+        <dl class='rd-dl'>
+          <dt>Sector</dt><dd class='rd-fi-sector'></dd>
+          <dt>Sede</dt><dd class='rd-fi-sede'></dd>
+          <dt>Fundada</dt><dd class='rd-fi-fundada'></dd>
+          <dt>Propiedad</dt><dd class='rd-fi-propiedad'></dd>
+          <dt>Claves</dt><dd><ul class='rd-fi-claves'></ul></dd>
+          <dt>En las propuestas</dt><dd class='rd-fi-props'></dd>
+          <dt>Operaciones en la base</dt><dd class='rd-fi-deals'></dd>
+          <dt>Fuente</dt><dd class='rd-fi-fuente'></dd>
+        </dl>
+      </div>
+    </template>
+  </aside>
+
+  <section class='rd-section' id='propuestas'>
+    <p class='rd-intro'>Cada propuesta es una pareja comprador → target con su lógica: qué sinergias tiene, qué gana el accionista de cada lado, qué procesos mejora y qué operaciones pasadas la respaldan (el número remite a la pestaña Precedentes). Ordenadas por puntos de solidez (<button class='rd-link' type='button' data-goto='leyenda'>ver cómo se puntúa</button>). Son hipótesis propias para validar, no recomendaciones.</p>
+    <div class='rd-cards' id='propuestas-lista' data-draw='cards' data-source='propuestas prop_score'></div>
+    <template class='rd-tpl-prop'>
+      <article class='rd-card'>
+        <div class='rd-prop-head'>
+          <span class='rd-pair'><button class='rd-link rd-f-compname' type='button'></button> → <button class='rd-link rd-f-tgtname' type='button'></button></span>
+          <span class='rd-badge rd-f-tipo'></span>
+          <span class='rd-badge rd-f-sol'></span>
+        </div>
+        <p class='rd-tesis'></p>
+        <dl class='rd-dl'>
+          <dt>Puntos</dt><dd class='rd-f-puntos'></dd>
+          <dt>Por qué</dt><dd class='rd-f-porque'></dd>
+          <dt>Sinergias</dt><dd class='rd-f-sinergias'></dd>
+          <dt>Accionistas</dt><dd class='rd-f-accionistas'></dd>
+          <dt>Procesos</dt><dd class='rd-f-procesos'></dd>
+          <dt>Precedentes</dt><dd class='rd-f-precedentes'></dd>
+          <dt>Riesgo</dt><dd class='rd-f-riesgo'></dd>
+          <dt>Siguiente paso</dt><dd class='rd-f-paso'></dd>
+        </dl>
+        <span class='rd-meta'><span>Estado: </span><span class='rd-f-estado'></span><span> · alta </span><span class='rd-f-fecha'></span></span>
+      </article>
+    </template>
+  </section>
+
+  <section class='rd-section' id='mercado' hidden>
+    <p class='rd-intro'>Qué está pasando en el mid-market de IT y software B2B en España, a partir de la biblioteca de precedentes.</p>
+    <div class='rd-grid'>
+      <div class='rd-card' id='card-quien'>
+        <h3>Quién compra</h3>
+        <p class='rd-note'>Operaciones por tipo de comprador, ago-2024 a oct-2026</p>
+        <div class='rd-chart' id='chart-quien' data-draw='ch_comprador' data-source='mix_comprador'></div>
+      </div>
+      <div class='rd-card' id='card-tipo'>
+        <h3>Qué tipo de operación</h3>
+        <p class='rd-note'>Operaciones por lógica estratégica</p>
+        <div class='rd-chart' id='chart-tipo' data-draw='ch_estrategico' data-source='mix_estrategico'></div>
+      </div>
+      <div class='rd-card' id='card-ritmo'>
+        <h3>Ritmo de operaciones</h3>
+        <p class='rd-note'>Operaciones por trimestre (solo las que tienen mes conocido)</p>
+        <div class='rd-chart' id='chart-ritmo' data-draw='ch_trimestre' data-source='por_trimestre'></div>
+      </div>
+      <div class='rd-card' id='card-activos'>
+        <h3>Compradores más activos</h3>
+        <p class='rd-note'>Compradores con dos o más operaciones en la base</p>
+        <div class='rd-chart' id='chart-activos' data-draw='ch_top' data-source='top_compradores'></div>
+      </div>
+    </div>
+  </section>
+
+  <section class='rd-section' id='targets' hidden>
+    <p class='rd-intro'>Universo actual: ciberseguridad. Puntuación de 0 a 10 = tamaño en el rango 5–20 M€ (0–2) + compradores naturales (0–3) + señal de venta (0–3) + calidad de los datos (0–2). Donde no hay ventas publicadas se estiman con los empleados.</p>
+    <div class='rd-tablebox'>
+      <table class='rd-table' id='tabla-targets' data-source='targets' data-row-key='empresa'>
+        <thead><tr>
+          <th data-field='empresa'>Empresa</th>
+          <th data-field='sede'>Sede</th>
+          <th data-field='subsector'>Subsector</th>
+          <th class='rd-num' data-source='targets_score' data-field='ventas_ref'>Ventas (M€)</th>
+          <th data-source='targets_score' data-field='origen_ventas'>Origen ventas</th>
+          <th class='rd-num' data-source='targets_score' data-field='ebitda_est'>EBITDA est. (M€)</th>
+          <th data-field='propiedad'>Propiedad</th>
+          <th data-field='senal'>Señal de venta</th>
+          <th data-field='compradores'>Compradores naturales</th>
+          <th class='rd-num' data-field='pts_tamano'>Tamaño</th>
+          <th class='rd-num' data-field='pts_compradores'>Compr.</th>
+          <th class='rd-num' data-field='pts_senal'>Señal</th>
+          <th class='rd-num' data-field='pts_datos'>Datos</th>
+          <th class='rd-num' data-source='targets_score' data-field='total'>Total</th>
+          <th data-source='targets_score' data-field='prioridad'>Prioridad</th>
+        </tr></thead>
+        <tbody data-draw='tb_targets'></tbody>
+      </table>
+    </div>
+    <p class='rd-note'>Ya consolidadas y excluidas: Innotec (Accenture), Nextel (S21sec/Thales), Hispasec (ReeVo), Aiuken (Allurity), Wise Security (Var Group), Zerolynx (Cybertix), Sofistic y MP Services (Cuatroochenta). BeDisruptive en liquidación; S2 Grupo por encima del rango.</p>
+  </section>
+
+  <section class='rd-section' id='compradores' hidden>
+    <p class='rd-intro'>Compradores recurrentes que el radar vigila: qué compran, qué les falta y qué target encaja con ellos.</p>
+    <div class='rd-tablebox'>
+      <table class='rd-table' id='tabla-compradores' data-source='compradores' data-row-key='comprador'>
+        <thead><tr>
+          <th data-field='comprador'>Comprador</th>
+          <th data-field='tipo'>Tipo</th>
+          <th data-field='sede'>Sede</th>
+          <th data-field='respaldo'>Respaldo</th>
+          <th class='rd-num' data-source='compras_n' data-field='compras'>Compras en la base</th>
+          <th data-field='patron'>Patrón</th>
+          <th data-field='hueco'>Hueco</th>
+          <th data-field='perfil_target'>Perfil de target</th>
+          <th data-field='ticket'>Ticket</th>
+          <th data-field='senales'>Señales a vigilar</th>
+          <th data-field='solidez'>Solidez tesis</th>
+        </tr></thead>
+        <tbody data-draw='tb_compradores'></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class='rd-section' id='deals' hidden>
+    <div class='rd-controls'>
+      <input class='rd-search rd-q' type='search' placeholder='Buscar comprador, target o subsector' aria-label='Buscar'>
+      <select class='dash-select rd-f-comp' aria-label='Tipo de comprador'>
+        <option value=''>Todos los compradores</option>
+        <option>Industrial nacional</option>
+        <option>Industrial extranjero</option>
+        <option>Plataforma PE (add-on)</option>
+        <option>Fondo PE (entrada)</option>
+        <option>Holding / consolidador de software</option>
+        <option>Corporate de otro sector</option>
+      </select>
+      <select class='dash-select rd-f-est' aria-label='Tipo estratégico'>
+        <option value=''>Todos los tipos</option>
+        <option>Horizontal</option>
+        <option>Adyacente</option>
+        <option>Vertical</option>
+        <option>Financiera / holding</option>
+      </select>
+    </div>
+    <div class='rd-tablebox'>
+      <table class='rd-table' id='tabla-deals' data-source='deals' data-row-key='id'>
+        <thead><tr>
+          <th class='rd-num' data-field='id'>#</th>
+          <th data-field='fecha'>Fecha</th>
+          <th data-field='comprador'>Comprador</th>
+          <th data-field='tipo_comprador'>Tipo comprador</th>
+          <th data-field='target'>Target</th>
+          <th data-field='subsector'>Subsector</th>
+          <th data-field='tipo_estrategico'>Tipo</th>
+          <th data-field='direccion'>Dirección</th>
+          <th class='rd-num' data-field='ev'>EV (M€)</th>
+          <th data-field='declarado'>Importe declarado</th>
+          <th data-field='racional'>Racional</th>
+        </tr></thead>
+        <tbody data-draw='tb_deals'></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class='rd-section' id='cambios' hidden>
+    <p class='rd-intro'>Histórico del radar: cada actualización semanal añade aquí lo que ha cambiado (nuevas operaciones, señales, puntuaciones y propuestas). Es lo que permite ver cómo evoluciona y medir si acierta.</p>
+    <div class='rd-tablebox'>
+      <table class='rd-table' id='tabla-cambios' data-source='registro' data-row-key='id'>
+        <thead><tr>
+          <th data-field='id'>ID</th>
+          <th data-field='fecha'>Fecha</th>
+          <th data-field='entidad'>Entidad</th>
+          <th data-field='tipo'>Tipo</th>
+          <th data-field='campo'>Campo</th>
+          <th data-field='valor_anterior'>Antes</th>
+          <th data-field='valor_nuevo'>Ahora</th>
+          <th data-field='motivo'>Motivo</th>
+        </tr></thead>
+        <tbody data-draw='tb_cambios'></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class='rd-section' id='leyenda' hidden>
+    <p class='rd-intro'>Cómo puntúa el radar. Cada propuesta y cada target enseñan sus puntos, y cuando cambia un dato la nota se recalcula sola.</p>
+    <div class='rd-grid'>
+      <div class='rd-card' id='leyenda-solidez'>
+        <h3>Solidez de las propuestas</h3>
+        <p class='rd-note'>Puntos de 0 a 10, suma de cuatro criterios. Las propuestas se ordenan de más a menos puntos; si empatan, va primero la que tiene el target más disponible.</p>
+        <div class='rd-tablebox'>
+          <table class='rd-table'>
+            <thead><tr><th>Criterio</th><th>Qué mide</th><th>Escala</th></tr></thead>
+            <tbody>
+              <tr><td>Encaje (0–3)</td><td class='rd-mid'>Si el target cubre algo que el comprador necesita</td><td class='rd-wide'>3: hueco que el comprador ha declarado · 2: complementa un área prioritaria · 1: solapa con lo que ya tiene y solo le da escala · 0: sin encaje claro</td></tr>
+              <tr><td>Precedentes (0–2)</td><td class='rd-mid'>Si el comprador ya ha hecho operaciones parecidas</td><td class='rd-wide'>2: varias compras del mismo tipo · 1: compras, pero de otro tipo · 0: ninguna</td></tr>
+              <tr><td>Capacidad (0–2)</td><td class='rd-mid'>Si puede pagarlo y el target cabe en su ticket</td><td class='rd-wide'>2: tiene caja, fondo o deuda y el ticket encaja · 1: una de las dos cosas es dudosa · 0: fuera de su alcance</td></tr>
+              <tr><td>Disponibilidad (0–3)</td><td class='rd-mid'>Si el target puede estar en venta</td><td class='rd-wide'>Son los puntos de señal de venta del target (pestaña Targets): cambian solos cuando cambia la señal</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class='rd-tablebox'>
+          <table class='rd-table'>
+            <thead><tr><th>Solidez</th><th class='rd-num'>Puntos</th></tr></thead>
+            <tbody data-draw='leyenda_sol'></tbody>
+          </table>
+        </div>
+      </div>
+      <div class='rd-card' id='leyenda-targets'>
+        <h3>Puntuación de los targets</h3>
+        <p class='rd-note'>Puntos de 0 a 10. Prioridad alta con 8 o más, media de 5 a 7 y baja por debajo de 5.</p>
+        <div class='rd-tablebox'>
+          <table class='rd-table'>
+            <thead><tr><th>Criterio</th><th>Escala</th></tr></thead>
+            <tbody>
+              <tr><td>Tamaño (0–2)</td><td class='rd-wide'>2: ventas publicadas dentro de 5–20 M€ · 1: estimación dentro del rango o dato cerca de él · 0: fuera del rango o sin dato</td></tr>
+              <tr><td>Compradores naturales (0–3)</td><td class='rd-wide'>3: tres o más compradores vigilados con encaje claro · 2: dos · 1: uno · 0: ninguno</td></tr>
+              <tr><td>Señal de venta (0–3)</td><td class='rd-wide'>3: fuerte (fondo cerca de su salida, sucesión, revisión estratégica) · 2: media (ventas estancadas, cambios en la dirección o en el accionariado) · 1: débil (plataforma pequeña que podría buscar socio) · 0: ninguna conocida</td></tr>
+              <tr><td>Calidad de datos (0–2)</td><td class='rd-wide'>2: ventas publicadas y propiedad verificada · 1: parte verificada (propiedad, plantilla o rango de ventas) · 0: casi sin datos</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class='rd-card' id='leyenda-estados'>
+        <h3>Estados de una propuesta</h3>
+        <p class='rd-note'>La revisión de cada lunes los actualiza y anota el cambio en la pestaña Cambios.</p>
+        <dl class='rd-dl'>
+          <dt>Nueva</dt><dd>Recién añadida, todavía sin noticias que la confirmen o la debiliten.</dd>
+          <dt>Vigilando</dt><dd>Hay alguna señal en marcha que puede moverla.</dd>
+          <dt>Reforzada</dt><dd>Una noticia la apoya: compra parecida del comprador, señal de venta del target…</dd>
+          <dt>Debilitada</dt><dd>Una noticia va en contra: el comprador gasta en otra cosa, el target crece solo…</dd>
+          <dt>Descartada</dt><dd>Ya no tiene sentido; deja de mostrarse, pero queda en el histórico.</dd>
+          <dt>Cerrada</dt><dd>La operación se ha hecho: cuenta como acierto del radar y deja de mostrarse.</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <details class='rd-details' id='metodo'>
+    <summary>Método y supuestos</summary>
+    <dl>
+      <dt>Fuentes</dt><dd>Solo fuentes gratuitas: informes mensuales Tech M&amp;A de Baker Tilly España, prensa económica, BORME, CNMV, BME Growth, rankings públicos (elEconomista) y webs y directorios de las empresas. El enlace de cada operación está en el CSV de Precedentes.</dd>
+      <dt>Ventas estimadas</dt><dd>Empleados × <b data-draw='vpe'>—</b> M€ por empleado, calibrado con Ednon y Minsait Business Consulting.</dd>
+      <dt>EBITDA estimado</dt><dd>Para targets privados sin cuentas publicadas: ventas × <b data-draw='margen'>—</b> de margen, calibrado con Ednon y Minsait Business Consulting. Orientativo, para filtrar, no para valorar.</dd>
+      <dt>Puntuaciones</dt><dd>Los criterios de los targets y de la solidez de las propuestas están en la pestaña Leyenda.</dd>
+      <dt>Múltiplos</dt><dd>Pocas operaciones publican EV y EBITDA: la mediana es orientativa.</dd>
+      <dt>Actualización</dt><dd>Cada lunes por la mañana se revisan las fuentes, se actualizan los datos y se anota cada cambio en la pestaña Cambios.</dd>
+    </dl>
+  </details>
+</div>
+
+<script>
+  // Supuesto elegido: ventas por empleado en servicios IT/ciber (M€).
+  window.RD_VPE = 0.12;
+  // Supuesto elegido: margen EBITDA de referencia para estimar targets privados.
+  window.RD_MARGEN = 0.10;
+  // Tramos de solidez de las propuestas (puntos mínimos de cada tramo).
+  window.RD_SOLIDEZ = [[9, 'Alta'], [7, 'Media-alta'], [5, 'Media'], [3, 'Media-baja'], [0, 'Baja']];
+  const VPE = window.RD_VPE;
+
+  dash.calc('targets_score', {
+    title: 'Puntuación de targets',
+    description: 'Suma de los cuatro puntos, prioridad, ventas (dato publicado o empleados × 0,12 M€) y EBITDA estimado (ventas × 10%).',
+    inputs: ['targets'],
+    fn: (targets) => targets.map((t) => {
+      const total = Number(t.pts_tamano) + Number(t.pts_compradores) + Number(t.pts_senal) + Number(t.pts_datos);
+      const dato = t.ventas_dato == null || t.ventas_dato === '' ? null : Number(t.ventas_dato);
+      const est = t.empleados == null || t.empleados === '' ? null : Math.round(Number(t.empleados) * 0.12 * 10) / 10;
+      return {
+        empresa: t.empresa,
+        ventas_ref: dato != null ? dato : est,
+        ebitda_est: dato != null || est != null ? Math.round((dato != null ? dato : est) * 0.10 * 10) / 10 : null,
+        origen_ventas: dato != null ? 'Publicado ' + t.anio_dato : (est != null ? 'Estimado' : 'n.d.'),
+        total,
+        prioridad: total >= 8 ? 'Alta' : total >= 5 ? 'Media' : 'Baja',
+      };
+    }),
+  });
+
+  dash.calc('prop_score', {
+    title: 'Puntos de solidez de las propuestas',
+    description: 'Encaje + precedentes + capacidad (de cada propuesta) + disponibilidad (los puntos de señal de venta de su target).',
+    inputs: ['propuestas', 'targets'],
+    fn: (propuestas, targets) => propuestas.map((p) => {
+      const t = targets.find((x) => x.empresa === p.target);
+      const disp = t ? Number(t.pts_senal) : 0;
+      return { id: p.id, pts_disponibilidad: disp, total: Number(p.pts_encaje) + Number(p.pts_precedentes) + Number(p.pts_capacidad) + disp };
+    }),
+  });
+
+  dash.calc('kpis', {
+    title: 'Cifras clave',
+    description: 'Recuentos y medianas de la base de precedentes, propuestas, targets y cambios.',
+    inputs: ['deals', 'targets_score', 'propuestas', 'registro'],
+    fn: (deals, targets_score, propuestas, registro) => {
+      const med = (a) => { const s = a.slice().sort((x, y) => x - y); const m = s.length >> 1; return s.length ? (s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2) : null; };
+      const n = deals.length;
+      const pe = deals.filter((d) => d.tipo_comprador === 'Plataforma PE (add-on)' || d.tipo_comprador === 'Fondo PE (entrada)').length;
+      const inb = deals.filter((d) => d.direccion === 'Inbound').length;
+      const mult = deals.filter((d) => d.ev != null && d.ebitda != null && Number(d.ebitda) > 0).map((d) => Number(d.ev) / Number(d.ebitda));
+      const fechas = registro.map((r) => String(r.fecha)).sort();
+      return [{
+        deals: n,
+        share_pe: n ? pe / n : null,
+        share_inbound: n ? inb / n : null,
+        med_ev_ebitda: med(mult),
+        n_ev_ebitda: mult.length,
+        propuestas: propuestas.filter((p) => p.estado !== 'Descartada' && p.estado !== 'Cerrada').length,
+        targets_alta: targets_score.filter((t) => t.prioridad === 'Alta').length,
+        ultima: fechas.length ? fechas[fechas.length - 1] : null,
+      }];
+    },
+  });
+
+  dash.calc('compras_n', {
+    title: 'Compras por comprador',
+    description: 'Operaciones de la base cuyo comprador coincide con alguno de los nombres del comprador vigilado.',
+    inputs: ['compradores', 'deals'],
+    fn: (compradores, deals) => compradores.map((c) => {
+      const names = String(c.alias_deals || c.comprador).split('|');
+      return { comprador: c.comprador, compras: deals.filter((d) => names.includes(d.comprador)).length };
+    }),
+  });
+
+  dash.calc('mix_comprador', {
+    title: 'Operaciones por tipo de comprador',
+    description: 'Recuento de operaciones por tipo de comprador.',
+    inputs: ['deals'],
+    fn: (deals) => {
+      const m = new Map();
+      deals.forEach((d) => m.set(d.tipo_comprador, (m.get(d.tipo_comprador) || 0) + 1));
+      return [...m].map(([tipo_comprador, n]) => ({ tipo_comprador, n })).sort((a, b) => b.n - a.n);
+    },
+  });
+
+  dash.calc('mix_estrategico', {
+    title: 'Operaciones por tipo estratégico',
+    description: 'Recuento de operaciones por lógica estratégica.',
+    inputs: ['deals'],
+    fn: (deals) => {
+      const m = new Map();
+      deals.forEach((d) => m.set(d.tipo_estrategico, (m.get(d.tipo_estrategico) || 0) + 1));
+      return [...m].map(([tipo_estrategico, n]) => ({ tipo_estrategico, n })).sort((a, b) => b.n - a.n);
+    },
+  });
+
+  dash.calc('por_trimestre', {
+    title: 'Operaciones por trimestre',
+    description: 'Recuento por trimestre de las operaciones con mes conocido.',
+    inputs: ['deals'],
+    fn: (deals) => {
+      const m = new Map();
+      deals.forEach((d) => {
+        const f = String(d.fecha);
+        if (!/^[0-9]{4}-[0-9]{2}$/.test(f)) return;
+        const q = f.slice(0, 4) + '-T' + Math.ceil(Number(f.slice(5, 7)) / 3);
+        m.set(q, (m.get(q) || 0) + 1);
+      });
+      return [...m].map(([trimestre, n]) => ({ trimestre, n })).sort((a, b) => (a.trimestre < b.trimestre ? -1 : 1));
+    },
+  });
+
+  dash.calc('top_compradores', {
+    title: 'Compradores más activos',
+    description: 'Compradores con dos o más operaciones en la base.',
+    inputs: ['deals'],
+    fn: (deals) => {
+      const m = new Map();
+      deals.forEach((d) => m.set(d.comprador, (m.get(d.comprador) || 0) + 1));
+      return [...m].filter(([, n]) => n >= 2).map(([comprador, n]) => ({ comprador, n })).sort((a, b) => b.n - a.n || (a.comprador < b.comprador ? -1 : 1));
+    },
+  });
+</script>
+
+<script>
+  d3.formatDefaultLocale({ decimal: ',', thousands: '.', grouping: [3], currency: ['', ' €'] });
+  const RD = window.RD = {};
+  RD.pct = new Intl.NumberFormat('es', { style: 'percent', maximumFractionDigits: 0 });
+  RD.num1 = new Intl.NumberFormat('es', { maximumFractionDigits: 1 });
+  RD.int = new Intl.NumberFormat('es', { maximumFractionDigits: 0 });
+
+  // Devuelve 'ok', 'error' o 'loading' para un conjunto de fuentes.
+  RD.status = (ids) => {
+    const st = ids.map((id) => dash.data(id).status);
+    if (st.every((s) => s === 'ok')) return 'ok';
+    if (st.some((s) => s === 'error' || s === 'missing' || s === 'declined')) return 'error';
+    return 'loading';
+  };
+  RD.fail = (el) => {
+    el.classList.remove('dash-skeleton');
+    const d = document.createElement('div');
+    d.className = 'rd-fail';
+    d.textContent = 'No se ha podido cargar';
+    el.replaceChildren(d);
+  };
+  // Para cifras en línea.
+  RD.inline = (el, id, field, fmt) => {
+    const g = dash.data(id);
+    if (g.status !== 'ok' || !g.data.length || g.data[0][field] == null) { el.textContent = '—'; return; }
+    el.textContent = fmt(g.data[0][field]);
+  };
+  // Para cajas de gráfico o listas.
+  RD.box = (el, ids) => {
+    const s = RD.status(ids);
+    if (s === 'ok') { el.classList.remove('dash-skeleton'); return true; }
+    if (s === 'error') RD.fail(el); else { el.replaceChildren(); el.classList.add('dash-skeleton'); }
+    return false;
+  };
+  RD.text = (v) => (v == null || v === '' ? '' : String(v));
+
+  RD.tip = (el) => {
+    let t = el.querySelector('.rd-tip');
+    if (!t) { t = document.createElement('div'); t.className = 'rd-tip'; t.hidden = true; el.appendChild(t); }
+    return t;
+  };
+  RD.showTip = (el, tip, event, k, v) => {
+    const k1 = document.createElement('div'); k1.className = 'rd-tip-k'; k1.textContent = k;
+    const v1 = document.createElement('div'); v1.textContent = v;
+    tip.replaceChildren(k1, v1);
+    tip.hidden = false;
+    const r = el.getBoundingClientRect();
+    const tw = tip.offsetWidth, th = tip.offsetHeight;
+    let x = event.clientX - r.left + 12, y = event.clientY - r.top - th - 8;
+    if (x + tw > r.width) x = Math.max(0, event.clientX - r.left - tw - 12);
+    if (y < 0) y = event.clientY - r.top + 12;
+    tip.style.left = x + 'px'; tip.style.top = y + 'px';
+  };
+
+  // Barras horizontales con etiqueta a la izquierda y valor al final.
+  RD.hbars = (el, rows, labelKey, valueKey, unit) => {
+    const W = Math.max(260, el.clientWidth);
+    const rowH = 26, top = 4;
+    const H = top + rows.length * rowH + 4;
+    el.style.minHeight = H + 'px';
+    const svg = d3.create('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img');
+    let lw = 0;
+    el.replaceChildren(svg.node());
+    // medir ya insertado en el documento
+    const meas = svg.append('g').attr('font-size', 12).attr('visibility', 'hidden');
+    rows.forEach((r) => { const t = meas.append('text').text(RD.text(r[labelKey])); lw = Math.max(lw, t.node().getComputedTextLength()); });
+    let vw = 0;
+    rows.forEach((r) => { const t = meas.append('text').text(RD.int.format(r[valueKey])); vw = Math.max(vw, t.node().getComputedTextLength()); });
+    meas.remove();
+    const left = Math.min(lw + 14, W * 0.62), right = vw + 10;
+    const x = d3.scaleLinear([0, d3.max(rows, (r) => Number(r[valueKey])) || 1], [left, W - right]);
+    const y = d3.scaleBand(rows.map((r, i) => i), [top, H - 4]).padding(0.25);
+    const g = svg.append('g').attr('font-size', 12);
+    const tip = RD.tip(el);
+    rows.forEach((r, i) => {
+      const lt = g.append('text').attr('x', left - 8).attr('y', y(i) + y.bandwidth() / 2).attr('dy', '0.35em').attr('text-anchor', 'end').attr('fill', 'var(--color-fg)').text(RD.text(r[labelKey]));
+      while (lt.node().getComputedTextLength() > left - 12 && lt.text().length > 4) lt.text(lt.text().slice(0, -2) + '…');
+      const bar = g.append('rect').attr('x', left).attr('y', y(i)).attr('height', Math.min(y.bandwidth(), 32)).attr('width', Math.max(1, x(Number(r[valueKey])) - left)).attr('rx', 2).attr('fill', i === 0 ? dash.colors[0] : 'var(--cds-chart-muted)');
+      g.append('text').attr('x', x(Number(r[valueKey])) + 6).attr('y', y(i) + y.bandwidth() / 2).attr('dy', '0.35em').attr('fill', 'var(--color-fg-muted)').text(RD.int.format(r[valueKey]));
+      bar.on('mousemove', (event) => RD.showTip(el, tip, event, RD.text(r[labelKey]), RD.int.format(r[valueKey]) + ' ' + unit))
+         .on('mouseleave', () => { tip.hidden = true; });
+    });
+    el.appendChild(tip);
+  };
+</script>
+
+<script>
+  // Cifras de cabecera
+  dash.draw('k_deals', (el) => RD.inline(el, 'kpis', 'deals', (v) => RD.int.format(v)));
+  dash.draw('k_deals_lede', (el) => RD.inline(el, 'kpis', 'deals', (v) => RD.int.format(v)));
+  dash.draw('k_ultima', (el) => RD.inline(el, 'kpis', 'ultima', (v) => String(v)));
+  dash.draw('k_pe', (el) => RD.inline(el, 'kpis', 'share_pe', (v) => RD.pct.format(v)));
+  dash.draw('k_inb', (el) => RD.inline(el, 'kpis', 'share_inbound', (v) => RD.pct.format(v)));
+  dash.draw('k_mult', (el) => RD.inline(el, 'kpis', 'med_ev_ebitda', (v) => RD.num1.format(v) + 'x'));
+  dash.draw('k_mult_n', (el) => RD.inline(el, 'kpis', 'n_ev_ebitda', (v) => RD.int.format(v)));
+  dash.draw('k_prop', (el) => RD.inline(el, 'kpis', 'propuestas', (v) => RD.int.format(v)));
+  dash.draw('k_alta', (el) => RD.inline(el, 'kpis', 'targets_alta', (v) => RD.int.format(v)));
+  dash.draw('vpe', (el) => { el.textContent = RD.num1.format(window.RD_VPE); });
+  dash.draw('margen', (el) => { el.textContent = RD.pct.format(window.RD_MARGEN); });
+
+  RD.solidez = (total) => { const t = window.RD_SOLIDEZ.find(([m]) => total >= m); return t ? t[1] : ''; };
+  RD.scoreMap = () => new Map((dash.data('prop_score').status === 'ok' ? dash.data('prop_score').data : []).map((s) => [s.id, s]));
+  RD.sortProps = (rows) => {
+    const sc = RD.scoreMap();
+    return rows.filter((p) => p.estado !== 'Descartada' && p.estado !== 'Cerrada')
+      .map((p) => ({ ...p, ...(sc.get(p.id) || { total: 0, pts_disponibilidad: 0 }) }))
+      .map((p) => ({ ...p, solidez: RD.solidez(p.total) }))
+      .sort((a, b) => b.total - a.total || b.pts_disponibilidad - a.pts_disponibilidad || (a.id < b.id ? -1 : 1));
+  };
+
+  dash.draw('leyenda_sol', (tb) => {
+    const tr = window.RD_SOLIDEZ.map(([m, label], i) => {
+      const hi = i === 0 ? 10 : window.RD_SOLIDEZ[i - 1][0] - 1;
+      const row = document.createElement('tr');
+      const a = document.createElement('td'); a.textContent = label;
+      const b = document.createElement('td'); b.className = 'rd-num'; b.textContent = m === hi ? String(m) : m + '–' + hi;
+      row.append(a, b);
+      return row;
+    });
+    tb.replaceChildren(...tr);
+  });
+
+  dash.draw('top_par', (el) => {
+    const g = dash.data('propuestas');
+    const rows = g.status === 'ok' && dash.data('prop_score').status === 'ok' ? RD.sortProps(g.data) : [];
+    el.textContent = rows.length ? rows[0].comprador + ' → ' + rows[0].target : '—';
+  });
+
+  // Tarjetas de propuestas
+  dash.draw('cards', (el) => {
+    if (!RD.box(el, ['propuestas', 'prop_score'])) return;
+    const tpl = document.querySelector('.rd-tpl-prop');
+    const rows = RD.sortProps(dash.data('propuestas').data);
+    const set = (node, sel, v) => { node.querySelectorAll(sel).forEach((n) => { n.textContent = RD.text(v); }); };
+    const cards = rows.map((p) => {
+      const node = tpl ? tpl.content.firstElementChild.cloneNode(true) : document.createElement('article');
+      node.id = 'prop-' + p.id;
+      set(node, '.rd-f-compname', p.comprador);
+      set(node, '.rd-f-tgtname', p.target);
+      node.querySelectorAll('.rd-f-compname').forEach((b) => { b.dataset.empresa = RD.text(p.comprador); });
+      node.querySelectorAll('.rd-f-tgtname').forEach((b) => { b.dataset.empresa = RD.text(p.target); });
+      set(node, '.rd-f-tipo', p.tipo_estrategico);
+      set(node, '.rd-f-sol', 'Solidez ' + String(p.solidez || '').toLowerCase());
+      node.querySelectorAll('.rd-f-sol').forEach((n) => {
+        n.classList.toggle('rd-sol-hi', p.solidez === 'Alta' || p.solidez === 'Media-alta');
+        n.classList.toggle('rd-sol-lo', p.solidez === 'Baja' || p.solidez === 'Media-baja');
+      });
+      set(node, '.rd-tesis', p.tesis);
+      set(node, '.rd-f-puntos', p.total + '/10 · encaje ' + p.pts_encaje + ' · precedentes ' + p.pts_precedentes + ' · capacidad ' + p.pts_capacidad + ' · disponibilidad ' + p.pts_disponibilidad);
+      set(node, '.rd-f-porque', p.por_que);
+      set(node, '.rd-f-sinergias', p.sinergias);
+      set(node, '.rd-f-accionistas', p.accionistas);
+      set(node, '.rd-f-procesos', p.procesos);
+      set(node, '.rd-f-precedentes', p.precedentes);
+      set(node, '.rd-f-riesgo', p.riesgo);
+      set(node, '.rd-f-paso', p.siguiente_paso);
+      set(node, '.rd-f-estado', p.estado);
+      set(node, '.rd-f-fecha', p.fecha_alta);
+      return node;
+    });
+    el.replaceChildren(...cards);
+  });
+
+  // Gráficos de mercado
+  dash.draw('ch_comprador', (el) => { if (RD.box(el, ['mix_comprador'])) RD.hbars(el, dash.data('mix_comprador').data, 'tipo_comprador', 'n', 'operaciones'); });
+  dash.draw('ch_estrategico', (el) => { if (RD.box(el, ['mix_estrategico'])) RD.hbars(el, dash.data('mix_estrategico').data, 'tipo_estrategico', 'n', 'operaciones'); });
+  dash.draw('ch_top', (el) => { if (RD.box(el, ['top_compradores'])) RD.hbars(el, dash.data('top_compradores').data, 'comprador', 'n', 'operaciones'); });
+
+  dash.draw('ch_trimestre', (el) => {
+    if (!RD.box(el, ['por_trimestre'])) return;
+    const rows = dash.data('por_trimestre').data;
+    const W = Math.max(260, el.clientWidth), H = 220;
+    const svg = d3.create('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img');
+    el.replaceChildren(svg.node());
+    const maxV = d3.max(rows, (r) => r.n) || 1;
+    const meas = svg.append('text').attr('font-size', 12).attr('visibility', 'hidden').text(RD.int.format(maxV));
+    const yw = meas.node().getComputedTextLength(); meas.remove();
+    const m = { top: 16, right: 4, bottom: 22, left: yw + 10 };
+    const x = d3.scaleBand(rows.map((r) => r.trimestre), [m.left, W - m.right]).padding(0.25);
+    const y = d3.scaleLinear([0, maxV], [H - m.bottom, m.top]).nice();
+    const ga = svg.append('g').attr('transform', `translate(0,${H - m.bottom})`);
+    // Etiquetas del eje x: menos marcas si no caben.
+    const lab = svg.append('text').attr('font-size', 12).attr('visibility', 'hidden').text('2026-T4');
+    const lw = lab.node().getComputedTextLength() + 8; lab.remove();
+    const every = Math.max(1, Math.ceil(lw / x.step()));
+    ga.call(d3.axisBottom(x).tickSizeOuter(0).tickValues(x.domain().filter((d, i) => i % every === 0)).tickFormat((d) => d.replace('-', ' ')))
+      .attr('font-size', null).attr('font-family', null);
+    ga.selectAll('text').attr('fill', 'var(--color-fg-muted)').attr('font-size', 12);
+    ga.selectAll('line,path').attr('stroke', 'var(--cds-chart-axis)');
+    const gy = svg.append('g');
+    y.ticks(4).forEach((t) => {
+      gy.append('line').attr('x1', m.left).attr('x2', W - m.right).attr('y1', y(t)).attr('y2', y(t)).attr('stroke', 'var(--cds-chart-grid)');
+      gy.append('text').attr('x', m.left - 6).attr('y', y(t)).attr('dy', '0.35em').attr('text-anchor', 'end').attr('font-size', 12).attr('fill', 'var(--color-fg-muted)').text(RD.int.format(t));
+    });
+    const tip = RD.tip(el);
+    rows.forEach((r) => {
+      svg.append('rect').attr('x', x(r.trimestre)).attr('width', Math.min(x.bandwidth(), 32) ).attr('transform', `translate(${(x.bandwidth() - Math.min(x.bandwidth(), 32)) / 2},0)`)
+        .attr('y', y(r.n)).attr('height', y(0) - y(r.n)).attr('rx', 2).attr('fill', dash.colors[0])
+        .on('mousemove', (event) => RD.showTip(el, tip, event, r.trimestre.replace('-', ' '), RD.int.format(r.n) + ' operaciones'))
+        .on('mouseleave', () => { tip.hidden = true; });
+    });
+    el.appendChild(tip);
+  });
+
+  // Tablas
+  RD.rowsTo = (tbody, rows, cols, key) => {
+    const trs = rows.map((r) => {
+      const tr = document.createElement('tr');
+      tr.dataset.key = String(r[key]);
+      cols.forEach((c) => {
+        const td = document.createElement('td');
+        if (c.cls) td.className = c.cls;
+        if (c.render) c.render(td, r); else td.textContent = RD.text(r[c.f]);
+        tr.appendChild(td);
+      });
+      return tr;
+    });
+    tbody.replaceChildren(...trs);
+  };
+
+  dash.draw('tb_targets', (tb) => {
+    if (RD.status(['targets', 'targets_score']) !== 'ok') { tb.replaceChildren(); return; }
+    const sc = new Map(dash.data('targets_score').data.map((s) => [s.empresa, s]));
+    const rows = dash.data('targets').data.map((t) => ({ ...t, ...(sc.get(t.empresa) || {}) })).sort((a, b) => b.total - a.total);
+    RD.rowsTo(tb, rows, [
+      { f: 'empresa', render: (td, r) => RD.nameBtn(td, r.empresa) }, { f: 'sede' }, { f: 'subsector', cls: 'rd-mid' },
+      { f: 'ventas_ref', cls: 'rd-num', render: (td, r) => { td.textContent = r.ventas_ref == null ? '' : RD.num1.format(r.ventas_ref); } },
+      { f: 'origen_ventas' },
+      { f: 'ebitda_est', cls: 'rd-num', render: (td, r) => { td.textContent = r.ebitda_est == null ? '' : RD.num1.format(r.ebitda_est); } },
+      { f: 'propiedad', cls: 'rd-mid' }, { f: 'senal', cls: 'rd-wide' }, { f: 'compradores', cls: 'rd-mid' },
+      { f: 'pts_tamano', cls: 'rd-num' }, { f: 'pts_compradores', cls: 'rd-num' }, { f: 'pts_senal', cls: 'rd-num' }, { f: 'pts_datos', cls: 'rd-num' },
+      { f: 'total', cls: 'rd-num', render: (td, r) => {
+          const w = document.createElement('span'); w.className = 'rd-score';
+          const b = document.createElement('span'); b.className = 'rd-bar'; b.style.width = (r.total / 10 * 3) + 'rem';
+          if (r.total >= 8) b.style.background = dash.colors[0];
+          const n = document.createElement('span'); n.textContent = RD.text(r.total);
+          w.append(b, n); td.appendChild(w);
+        } },
+      { f: 'prioridad', render: (td, r) => { td.textContent = RD.text(r.prioridad); td.className = r.prioridad === 'Alta' ? 'rd-prio-alta' : r.prioridad === 'Media' ? 'rd-prio-media' : ''; } },
+    ], 'empresa');
+  });
+
+  dash.draw('tb_compradores', (tb) => {
+    if (RD.status(['compradores', 'compras_n']) !== 'ok') { tb.replaceChildren(); return; }
+    const cn = new Map(dash.data('compras_n').data.map((c) => [c.comprador, c.compras]));
+    const rows = dash.data('compradores').data.map((c) => ({ ...c, compras: cn.get(c.comprador) })).sort((a, b) => (b.compras || 0) - (a.compras || 0));
+    RD.rowsTo(tb, rows, [
+      { f: 'comprador', render: (td, r) => RD.nameBtn(td, r.comprador) }, { f: 'tipo' }, { f: 'sede' }, { f: 'respaldo', cls: 'rd-mid' }, { f: 'compras', cls: 'rd-num' },
+      { f: 'patron', cls: 'rd-wide' }, { f: 'hueco', cls: 'rd-wide' }, { f: 'perfil_target', cls: 'rd-wide' }, { f: 'ticket' },
+      { f: 'senales', cls: 'rd-wide' }, { f: 'solidez' },
+    ], 'comprador');
+  });
+
+  dash.draw('tb_deals', (tb) => {
+    if (RD.status(['deals']) !== 'ok') { tb.replaceChildren(); return; }
+    const q = [...document.querySelectorAll('.rd-q')].map((i) => i.value.trim().toLowerCase()).join(' ').trim();
+    const fc = [...document.querySelectorAll('.rd-f-comp')].map((s) => s.value).find((v) => v) || '';
+    const fe = [...document.querySelectorAll('.rd-f-est')].map((s) => s.value).find((v) => v) || '';
+    const rows = dash.data('deals').data.filter((d) => {
+      if (fc && d.tipo_comprador !== fc) return false;
+      if (fe && d.tipo_estrategico !== fe) return false;
+      if (q) {
+        const hay = [d.comprador, d.target, d.subsector, d.respaldo, d.racional].map(RD.text).join(' ').toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    }).slice().sort((a, b) => (String(b.fecha) < String(a.fecha) ? -1 : String(b.fecha) > String(a.fecha) ? 1 : b.id - a.id));
+    RD.rowsTo(tb, rows, [
+      { f: 'id', cls: 'rd-num' }, { f: 'fecha' }, { f: 'comprador', cls: 'rd-mid', render: (td, r) => RD.nameBtn(td, r.comprador) }, { f: 'tipo_comprador' }, { f: 'target', cls: 'rd-mid', render: (td, r) => RD.nameBtn(td, r.target) },
+      { f: 'subsector', cls: 'rd-mid' }, { f: 'tipo_estrategico' }, { f: 'direccion' },
+      { f: 'ev', cls: 'rd-num', render: (td, r) => { td.textContent = r.ev == null ? '' : RD.num1.format(r.ev); } },
+      { f: 'declarado', cls: 'rd-mid' }, { f: 'racional', cls: 'rd-wide' },
+    ], 'id');
+  });
+
+  dash.draw('tb_cambios', (tb) => {
+    if (RD.status(['registro']) !== 'ok') { tb.replaceChildren(); return; }
+    const rows = dash.data('registro').data.slice().sort((a, b) => (String(b.fecha) + b.id < String(a.fecha) + a.id ? -1 : 1));
+    RD.rowsTo(tb, rows, [
+      { f: 'id' }, { f: 'fecha' }, { f: 'entidad', cls: 'rd-mid' }, { f: 'tipo' }, { f: 'campo' }, { f: 'valor_anterior' }, { f: 'valor_nuevo' }, { f: 'motivo', cls: 'rd-wide' },
+    ], 'id');
+  });
+
+  // Filtros de la tabla de precedentes
+  document.querySelectorAll('.rd-q').forEach((i) => i.addEventListener('input', () => dash.draw('tb_deals')));
+  document.querySelectorAll('.rd-f-comp, .rd-f-est').forEach((s) => s.addEventListener('change', () => dash.draw('tb_deals')));
+
+  // Pestañas
+  // Fichas de empresa
+  RD.norm = (s) => RD.text(s).toLowerCase().trim();
+  RD.nameBtn = (td, name) => {
+    if (!RD.text(name)) return;
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'rd-link'; b.dataset.empresa = RD.text(name); b.textContent = RD.text(name);
+    td.appendChild(b);
+  };
+  RD.findFicha = (rows, name) => {
+    const n = RD.norm(name);
+    return rows.find((e) => [e.empresa, ...RD.text(e.alias).split('|')].some((a) => RD.norm(a) === n)) || null;
+  };
+  dash.draw('ficha', (el) => {
+    const name = window.RD_SEL;
+    if (!name) { el.replaceChildren(); return; }
+    if (!RD.box(el, ['empresas', 'deals', 'propuestas', 'prop_score'])) return;
+    const tpl = document.querySelector('.rd-tpl-ficha');
+    if (!tpl) { el.replaceChildren(); return; }
+    const f = RD.findFicha(dash.data('empresas').data, name);
+    const names = f ? [f.empresa, ...RD.text(f.alias).split('|')].map(RD.norm) : [RD.norm(name)];
+    const deals = dash.data('deals').data.filter((d) => names.includes(RD.norm(d.comprador)) || names.includes(RD.norm(d.target)));
+    const props = RD.sortProps(dash.data('propuestas').data).filter((p) => names.includes(RD.norm(p.comprador)) || names.includes(RD.norm(p.target)));
+    const node = tpl.content.firstElementChild.cloneNode(true);
+    const set = (sel, v) => node.querySelectorAll(sel).forEach((n) => { n.textContent = RD.text(v) || 'n.d.'; });
+    const asTarget = deals.find((d) => names.includes(RD.norm(d.target)));
+    set('.rd-fi-nombre', f ? f.empresa : name);
+    set('.rd-fi-rol', f ? f.rol : (asTarget ? 'Target en la base' : 'Comprador en la base'));
+    node.querySelectorAll('.rd-fi-sinficha').forEach((n) => { n.hidden = !!f; });
+    set('.rd-fi-desc', f ? f.descripcion : (deals[0] ? deals[0].racional : ''));
+    set('.rd-fi-sector', f ? f.sector : (asTarget ? asTarget.subsector : (deals[0] ? deals[0].tipo_comprador : '')));
+    set('.rd-fi-sede', f ? f.sede : (asTarget ? asTarget.ubicacion : (deals[0] ? deals[0].pais : '')));
+    set('.rd-fi-fundada', f ? f.fundada : '');
+    set('.rd-fi-propiedad', f ? f.propiedad : (deals[0] && !asTarget ? deals[0].respaldo : ''));
+    node.querySelectorAll('.rd-fi-claves').forEach((ul) => {
+      const items = f ? RD.text(f.claves).split('|').filter(Boolean) : [];
+      ul.replaceChildren(...items.map((t) => { const li = document.createElement('li'); li.textContent = t; return li; }));
+      if (!items.length) ul.textContent = 'n.d.';
+    });
+    node.querySelectorAll('.rd-fi-props').forEach((dd) => {
+      if (!props.length) { dd.textContent = 'Ninguna por ahora'; return; }
+      dd.replaceChildren(...props.map((p) => { const s = document.createElement('div'); s.textContent = p.id + ' · ' + p.comprador + ' → ' + p.target + ' (solidez ' + RD.text(p.solidez).toLowerCase() + ', ' + p.total + '/10)'; return s; }));
+    });
+    node.querySelectorAll('.rd-fi-deals').forEach((dd) => {
+      if (!deals.length) { dd.textContent = 'Ninguna'; return; }
+      const sorted = deals.slice().sort((a, b) => (String(b.fecha) < String(a.fecha) ? -1 : 1));
+      dd.replaceChildren(...sorted.map((d) => {
+        const s = document.createElement('div');
+        const otro = names.includes(RD.norm(d.target)) ? 'comprada por ' + d.comprador : d.target;
+        s.textContent = '#' + d.id + ' · ' + d.fecha + ' · ' + otro + (d.ev != null ? ' · EV ' + RD.num1.format(d.ev) + ' M€' : '');
+        return s;
+      }));
+    });
+    node.querySelectorAll('.rd-fi-fuente').forEach((dd) => {
+      const url = f ? RD.text(f.fuente) : (deals[0] ? RD.text(deals[0].fuente) : '');
+      if (url.startsWith('https://')) {
+        const a = document.createElement('a'); a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+        a.textContent = url.slice(8).replace(/^www[.]/, '').split('/')[0]; dd.replaceChildren(a);
+      } else dd.textContent = 'n.d.';
+    });
+    el.replaceChildren(node);
+  });
+  RD.openFicha = (name) => {
+    window.RD_SEL = name;
+    const panels = [...document.querySelectorAll('.rd-ficha-panel')];
+    panels.forEach((p) => { p.hidden = false; });
+    dash.draw('ficha');
+    panels.forEach((p) => { const r = p.getBoundingClientRect(); if (r.top < 0 || r.top > window.innerHeight - 80) p.scrollIntoView({ block: 'start', behavior: 'smooth' }); });
+  };
+  document.querySelectorAll('.rd').forEach((root) => root.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-empresa]');
+    if (b) RD.openFicha(b.dataset.empresa);
+  }));
+  document.querySelectorAll('.rd-close').forEach((b) => b.addEventListener('click', () => {
+    document.querySelectorAll('.rd-ficha-panel').forEach((p) => { p.hidden = true; });
+  }));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') document.querySelectorAll('.rd-ficha-panel').forEach((p) => { p.hidden = true; });
+  });
+
+  const RD_TABS = ['propuestas', 'mercado', 'targets', 'compradores', 'deals', 'cambios', 'leyenda'];
+  const showTab = (name, link) => {
+    document.querySelectorAll('.rd-section').forEach((s) => { s.hidden = s.id !== name; });
+    document.querySelectorAll('.rd-tab').forEach((b) => b.setAttribute('aria-selected', b.dataset.tab === name ? 'true' : 'false'));
+    if (link) dash.setLink(name);
+  };
+  document.querySelectorAll('.rd-tab').forEach((b) => b.addEventListener('click', () => showTab(b.dataset.tab, true)));
+  document.querySelectorAll('[data-goto]').forEach((b) => b.addEventListener('click', () => showTab(b.dataset.goto, true)));
+  const hash = location.hash.slice(1);
+  if (RD_TABS.includes(hash)) showTab(hash, false);
+</script>
+
+
+<footer class='site-foot'>
+  <div>Descargar los datos (CSV):</div>
+  <div class='site-dl'>
+    <button type='button' data-csv='propuestas'>Propuestas</button>
+    <button type='button' data-csv='targets'>Targets</button>
+    <button type='button' data-csv='compradores'>Compradores</button>
+    <button type='button' data-csv='empresas'>Fichas de empresa</button>
+    <button type='button' data-csv='deals'>Precedentes</button>
+    <button type='button' data-csv='registro'>Cambios</button>
+  </div>
+  <div>Fuentes: Baker Tilly Tech M&amp;A España, prensa económica, BORME, CNMV, BME Growth y webs públicas de las empresas. El enlace de cada dato está en su CSV.</div>
+</footer>
+<script>
+  document.querySelectorAll('[data-csv]').forEach((b) => b.addEventListener('click', () => {
+    const g = window.dash.data(b.dataset.csv);
+    if (g.status !== 'ok' || !g.data.length) return;
+    const cols = [...new Set(g.data.flatMap((r) => Object.keys(r)))];
+    const esc = (v) => { const s = v == null ? '' : String(v); return /[";\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; };
+    const csv = '\ufeff' + [cols.join(';'), ...g.data.map((r) => cols.map((c) => esc(r[c])).join(';'))].join('\n');
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
+    a.download = 'radar-ma-' + b.dataset.csv + '.csv';
+    a.click();
+  }));
+</script>
+
+</div>
+</body>
+</html>

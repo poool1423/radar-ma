@@ -1,0 +1,156 @@
+[
+{
+"id": "R001",
+"fecha": "2026-11-07",
+"entidad": "Biblioteca de precedentes",
+"tipo": "Base",
+"campo": "Nº operaciones",
+"valor_anterior": null,
+"valor_nuevo": "94",
+"motivo": "Carga inicial (ago-2024 a oct-2026)",
+"fuente": "Baker Tilly Tech M&A y prensa"
+},
+{
+"id": "R002",
+"fecha": "2026-11-07",
+"entidad": "Factum IT",
+"tipo": "Target",
+"campo": "Puntuación",
+"valor_anterior": null,
+"valor_nuevo": "10",
+"motivo": "Alta inicial en el universo de ciberseguridad",
+"fuente": "https://forbes.es/?p=891337"
+},
+{
+"id": "R003",
+"fecha": "2026-11-07",
+"entidad": "Tarlogic",
+"tipo": "Target",
+"campo": "Puntuación",
+"valor_anterior": null,
+"valor_nuevo": "5",
+"motivo": "Alta inicial",
+"fuente": "https://www.tarlogic.com/news/european-companies-with-the-strongest-sustained-growth/"
+},
+{
+"id": "R004",
+"fecha": "2026-11-07",
+"entidad": "Ackcent",
+"tipo": "Target",
+"campo": "Puntuación",
+"valor_anterior": null,
+"valor_nuevo": "5",
+"motivo": "Alta inicial",
+"fuente": "https://cybersectools.com/companies/ackcent"
+},
+{
+"id": "R005",
+"fecha": "2026-11-07",
+"entidad": "Var Group, Altia, Cybertix",
+"tipo": "Comprador",
+"campo": "Vigilancia",
+"valor_anterior": null,
+"valor_nuevo": "Añadidos",
+"motivo": "Detectados como compradores de ciberseguridad",
+"fuente": null
+},
+{
+"id": "R006",
+"fecha": "2026-11-07",
+"entidad": "Propuestas comprador → target",
+"tipo": "Propuesta",
+"campo": "Alta",
+"valor_anterior": null,
+"valor_nuevo": "8",
+"motivo": "Primeras propuestas del universo de ciberseguridad",
+"fuente": null
+},
+{
+"id": "R007",
+"fecha": "2026-11-07",
+"entidad": "Secure&IT",
+"tipo": "Target",
+"campo": "Propiedad",
+"valor_anterior": "No verificada",
+"valor_nuevo": "Mayoría de LKS Next (Mondragon)",
+"motivo": "Detectado al preparar la ficha: deja de ser target independiente",
+"fuente": "https://capital-riesgo.es/es/articles/el-nivel-de-madurez-de-las-cooperativas-de-mondragon-en-materia-de-ciberseguridad-est-mejorando-notablemente/"
+},
+{
+"id": "R008",
+"fecha": "2026-11-07",
+"entidad": "Secure&IT",
+"tipo": "Target",
+"campo": "Puntuación",
+"valor_anterior": "2",
+"valor_nuevo": "1",
+"motivo": "Compradores naturales 2 → 0 (ya tiene dueño industrial); datos 0 → 1 (propiedad verificada)",
+"fuente": null
+},
+{
+"id": "R009",
+"fecha": "2026-11-07",
+"entidad": "Lazarus Technology",
+"tipo": "Target",
+"campo": "Empleados",
+"valor_anterior": null,
+"valor_nuevo": "43",
+"motivo": "Dato de directorios públicos; permite estimar ventas",
+"fuente": "https://bouncewatch.com/company/lazarus-technology"
+},
+{
+"id": "R010",
+"fecha": "2026-11-07",
+"entidad": "Fichas de empresa",
+"tipo": "Base",
+"campo": "Alta",
+"valor_anterior": null,
+"valor_nuevo": "21",
+"motivo": "Ficha con descripción y claves para cada target y comprador vigilado",
+"fuente": null
+},
+{
+"id": "R011",
+"fecha": "2026-11-07",
+"entidad": "Método",
+"tipo": "Base",
+"campo": "Fuentes",
+"valor_anterior": "Cuentas anuales de pago para la lista corta",
+"valor_nuevo": "Solo fuentes gratuitas",
+"motivo": "EBITDA de targets privados estimado con margen del 10% (Ednon 9,9%, MBC 10%)",
+"fuente": null
+},
+{
+"id": "R012",
+"fecha": "2026-11-07",
+"entidad": "Método",
+"tipo": "Base",
+"campo": "Solidez de propuestas",
+"valor_anterior": "Criterio cualitativo",
+"valor_nuevo": "Puntos 0–10 (encaje + precedentes + capacidad + disponibilidad)",
+"motivo": "La solidez pasa a calcularse con criterios explícitos; ver la pestaña Leyenda",
+"fuente": null
+},
+{
+"id": "R013",
+"fecha": "2026-11-07",
+"entidad": "Lutech → Factum IT",
+"tipo": "Propuesta",
+"campo": "Solidez",
+"valor_anterior": "Media",
+"valor_nuevo": "Media-alta (8/10)",
+"motivo": "Recalculada con la nueva puntuación",
+"fuente": null
+},
+{
+"id": "R014",
+"fecha": "2026-11-07",
+"entidad": "Nazca Capital (Lãberit / Ravenloop) → Grupo Cybertix",
+"tipo": "Propuesta",
+"campo": "Solidez",
+"valor_anterior": "Baja",
+"valor_nuevo": "Media-baja (4/10)",
+"motivo": "Recalculada con la nueva puntuación",
+"fuente": null
+}
+]
