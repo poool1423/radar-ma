@@ -61,12 +61,13 @@
     refresh: () => {},
   };
 
-  const load = () => Promise.all(DATASETS.map((id) =>
-    fetch('data/' + id + '.json', { cache: 'no-cache' })
+  const dir = (window.RD_CFG && window.RD_CFG.dir) || null;
+  const load = () => (dir ? Promise.all(DATASETS.map((id) =>
+    fetch(dir + id + '.json', { cache: 'no-cache' })
       .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then((d) => { store[id] = { status: 'ok', data: Array.isArray(d) ? d : (d.rows || d.data || []) }; })
       .catch((e) => { console.error('dataset', id, e); store[id] = { status: 'error', data: [] }; })
-  ));
+  )).then(() => { if (window.RD_FILTRO) window.RD_FILTRO(store); }) : Promise.resolve());
 
   window.addEventListener('DOMContentLoaded', () => {
     ready = true;

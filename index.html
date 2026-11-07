@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Radar M&amp;A · IT y software B2B España</title>
+<title>Radar M&amp;A · mid-market España</title>
 <link rel="stylesheet" href="assets/tokens.css">
 <link rel="stylesheet" href="assets/tema.css">
 <style>
@@ -80,16 +80,34 @@
   #leyenda-solidez { grid-column: 1 / -1; }
 </style>
 <script src="assets/d3.min.js"></script>
+<script src="assets/sectores.js"></script>
 <script src="assets/dash-lite.js"></script>
 </head>
 <body>
 <div id="dash-root">
+
+<section id='portada' class='portada' hidden>
+  <p class='portada-kicker'>Radar de originación M&amp;A · mid-market español</p>
+  <h1>¿Qué mercado quieres ver?</h1>
+  <p class='portada-lede'>Parejas comprador → target, con sinergias, precedentes y una nota de solidez. Elige un sector.</p>
+  <div class='portada-cards'>
+    <button type='button' class='portada-card' data-sector='it'><span class='pc-t'>IT y software B2B</span><span class='pc-s'>Software, integradores y ciberseguridad · toda España · se actualiza los lunes</span></button>
+    <button type='button' class='portada-card' data-sector='alimentacion'><span class='pc-t'>Alimentación y bebidas</span><span class='pc-s'>Industria familiar y auxiliar · Cataluña o toda España · se actualiza los martes</span></button>
+  </div>
+  <p class='portada-pie'>Elaborado por Pol a partir de fuentes públicas y gratuitas. Hipótesis para validar, no recomendaciones de inversión.</p>
+</section>
+
 <div class='rd'>
   <header class='rd-head' id='inicio'>
     <h1 class='rd-title'>Radar M&amp;A · IT y software B2B España</h1>
     <p class='rd-lede'>Propuesta más sólida ahora: <b data-draw='top_par' data-source='propuestas prop_score'>—</b>. Se apoya en <b data-draw='k_deals_lede' data-source='kpis' data-field='deals' data-row='0'>—</b> operaciones de ago-2024 a oct-2026; último cambio registrado el <b data-draw='k_ultima' data-source='kpis' data-field='ultima' data-row='0'>—</b>.</p>
   </header>
-  <p class='site-aviso'>Radar de originación M&amp;A elaborado por Pol a partir de fuentes públicas y gratuitas. Las propuestas comprador → target son hipótesis propias para validar, no recomendaciones de inversión. Datos actualizados cada lunes.</p>
+  <div id='site-bar' class='site-bar'>
+    <label>Sector <select class='site-sector' aria-label='Sector'><option value='it'>IT y software B2B</option><option value='alimentacion'>Alimentación y bebidas</option></select></label>
+    <select class='site-region' aria-label='Región' hidden><option value='cat'>Cataluña</option><option value='es'>Toda España</option></select>
+    <span class='site-nota'></span>
+  </div>
+  <p class='site-aviso'>Radar de originación M&amp;A elaborado por Pol a partir de fuentes públicas y gratuitas. Las propuestas comprador → target son hipótesis propias para validar, no recomendaciones de inversión. Datos actualizados cada <b>lunes</b>.</p>
 
   <div class='rd-tiles'>
     <div class='rd-tile'>
@@ -388,25 +406,25 @@
 
 <script>
   // Supuesto elegido: ventas por empleado en servicios IT/ciber (M€).
-  window.RD_VPE = 0.12;
+  window.RD_VPE = window.RD_CFG.vpe;
   // Supuesto elegido: margen EBITDA de referencia para estimar targets privados.
-  window.RD_MARGEN = 0.10;
+  window.RD_MARGEN = window.RD_CFG.margen;
   // Tramos de solidez de las propuestas (puntos mínimos de cada tramo).
   window.RD_SOLIDEZ = [[9, 'Alta'], [7, 'Media-alta'], [5, 'Media'], [3, 'Media-baja'], [0, 'Baja']];
   const VPE = window.RD_VPE;
 
   dash.calc('targets_score', {
     title: 'Puntuación de targets',
-    description: 'Suma de los cuatro puntos, prioridad, ventas (dato publicado o empleados × 0,12 M€) y EBITDA estimado (ventas × 10%).',
+    description: 'Suma de los cuatro puntos, prioridad, ventas (dato publicado o empleados × ventas por empleado) y EBITDA estimado (ventas × margen).',
     inputs: ['targets'],
     fn: (targets) => targets.map((t) => {
       const total = Number(t.pts_tamano) + Number(t.pts_compradores) + Number(t.pts_senal) + Number(t.pts_datos);
       const dato = t.ventas_dato == null || t.ventas_dato === '' ? null : Number(t.ventas_dato);
-      const est = t.empleados == null || t.empleados === '' ? null : Math.round(Number(t.empleados) * 0.12 * 10) / 10;
+      const est = t.empleados == null || t.empleados === '' ? null : Math.round(Number(t.empleados) * window.RD_VPE * 10) / 10;
       return {
         empresa: t.empresa,
         ventas_ref: dato != null ? dato : est,
-        ebitda_est: dato != null || est != null ? Math.round((dato != null ? dato : est) * 0.10 * 10) / 10 : null,
+        ebitda_est: dato != null || est != null ? Math.round((dato != null ? dato : est) * window.RD_MARGEN * 10) / 10 : null,
         origen_ventas: dato != null ? 'Publicado ' + t.anio_dato : (est != null ? 'Estimado' : 'n.d.'),
         total,
         prioridad: total >= 8 ? 'Alta' : total >= 5 ? 'Media' : 'Baja',
@@ -899,7 +917,7 @@
     <button type='button' data-csv='deals'>Precedentes</button>
     <button type='button' data-csv='registro'>Cambios</button>
   </div>
-  <div>Fuentes: Baker Tilly Tech M&amp;A España, prensa económica, BORME, CNMV, BME Growth y webs públicas de las empresas. El enlace de cada dato está en su CSV.</div>
+  <div class='site-fuentes'></div>
 </footer>
 <script>
   document.querySelectorAll('[data-csv]').forEach((b) => b.addEventListener('click', () => {

@@ -1,0 +1,57 @@
+[
+ {
+  "id": "A001",
+  "fecha": "2026-11-08",
+  "entidad": "Biblioteca de precedentes",
+  "tipo": "Base",
+  "campo": "Nº operaciones",
+  "valor_anterior": null,
+  "valor_nuevo": "37",
+  "motivo": "Carga inicial de alimentación, bebidas y auxiliar (2024–2026)",
+  "fuente": "Alimarket, capital-riesgo.es, Albia IMAP y prensa"
+ },
+ {
+  "id": "A002",
+  "fecha": "2026-11-08",
+  "entidad": "Compradores",
+  "tipo": "Base",
+  "campo": "Nº perfiles",
+  "valor_anterior": null,
+  "valor_nuevo": "12",
+  "motivo": "Compradores con compras recientes en España",
+  "fuente": "Precedentes"
+ },
+ {
+  "id": "A003",
+  "fecha": "2026-11-08",
+  "entidad": "Targets",
+  "tipo": "Base",
+  "campo": "Nº targets",
+  "valor_anterior": null,
+  "valor_nuevo": "5",
+  "motivo": "Primer universo: familiares catalanas de 10–75 M€",
+  "fuente": "elEconomista, ACCIÓ, prensa"
+ },
+ {
+  "id": "A004",
+  "fecha": "2026-11-08",
+  "entidad": "Propuestas",
+  "tipo": "Base",
+  "campo": "Nº propuestas",
+  "valor_anterior": null,
+  "valor_nuevo": "7",
+  "motivo": "Primeras parejas comprador → target",
+  "fuente": "Análisis propio"
+ },
+ {
+  "id": "A005",
+  "fecha": "2026-11-08",
+  "entidad": "Método",
+  "tipo": "Supuesto",
+  "campo": "Ventas por empleado y margen",
+  "valor_anterior": null,
+  "valor_nuevo": "0,18 M€ y 8%",
+  "motivo": "Calibrado con Cafès Novell, Triticum y Avimosa (0,16–0,22 M€ por empleado); margen de referencia por calibrar",
+  "fuente": "Fuentes de cada empresa"
+ }
+]

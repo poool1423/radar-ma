@@ -26,3 +26,28 @@
 #dash-root .rd-tab[aria-selected='true'] { color: #13294b; border-bottom-color: #b08a3e; font-weight: 600; }
 #dash-root .rd-card h3, #dash-root .rd-pair { color: #13294b; }
 #dash-root .rd-table th { background: #13294b; color: #fff; }
+
+/* Portada de selección de sector */
+body.sin-sector #dash-root > .rd, body.sin-sector #dash-root > .site-foot { display: none; }
+#dash-root .portada { max-width: 880px; margin: 6vh auto 0; padding: 40px 36px; background: #13294b; color: #fff; border-radius: 14px; border-bottom: 4px solid #b08a3e; }
+#dash-root .portada[hidden] { display: none; }
+#dash-root .portada h1 { color: #fff; font-size: 30px; margin: 6px 0 10px; }
+#dash-root .portada-kicker { color: #d9b56a; text-transform: uppercase; letter-spacing: .08em; font-size: 12px; margin: 0; }
+#dash-root .portada-lede { color: #c9d3e3; margin: 0 0 24px; }
+#dash-root .portada-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+#dash-root .portada-card { text-align: left; display: grid; gap: 8px; padding: 22px; border-radius: 12px; border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.06); color: #fff; cursor: pointer; font: inherit; transition: background .15s, border-color .15s; }
+#dash-root .portada-card:hover, #dash-root .portada-card:focus-visible { background: rgba(255,255,255,.12); border-color: #b08a3e; outline: none; }
+#dash-root .portada-card .pc-t { font-size: 20px; font-weight: 600; }
+#dash-root .portada-card .pc-s { font-size: 13px; color: #c9d3e3; }
+#dash-root .portada-pie { color: #9fb0c8; font-size: 12px; margin: 22px 0 0; }
+
+/* Barra de sector y región */
+#dash-root .site-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin: 12px 0 8px; font-size: 13px; }
+#dash-root .site-bar label { display: flex; align-items: center; gap: 8px; font-weight: 600; color: #13294b; }
+#dash-root .site-bar select { font: inherit; padding: 6px 10px; border-radius: 8px; border: 1px solid #b08a3e; background: #fff; color: #13294b; }
+#dash-root .site-bar select[hidden] { display: none; }
+#dash-root .site-nota { color: var(--color-fg-muted, #5b6577); }
+@media (prefers-color-scheme: dark) {
+  #dash-root .site-bar label { color: #e6ecf5; }
+  #dash-root .site-bar select { background: #1b2433; color: #e6ecf5; }
+}
