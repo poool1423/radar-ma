@@ -63,6 +63,10 @@ body = before_section_end(body, 'targets', """
       <p class='rd-note' data-draw='valor_nota'></p>
       <div class='rd-tablebox'><table class='rd-table' data-draw='tb_valor'></table></div>
     </div>
+    <div class='rd-card site-valor'>
+      <h3>Comparables: de dónde salen los múltiplos</h3>
+      <div class='rd-tablebox'><table class='rd-table' data-draw='tb_comps'></table></div>
+    </div>
 """)
 # Validación de la puntuación en Leyenda
 body = before_section_end(body, 'leyenda', """

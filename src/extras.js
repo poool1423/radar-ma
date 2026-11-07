@@ -6,7 +6,9 @@
   const RD = window.RD;
   const M = cfg.multiplos;
   const n1 = new Intl.NumberFormat('es', { maximumFractionDigits: 1 });
-  const x1 = (v) => n1.format(v) + 'x';
+  const n2 = new Intl.NumberFormat('es', { maximumFractionDigits: 2 });
+  const x1 = (v) => n2.format(v) + 'x';
+  const ebOf = (s) => (s && s.ventas_ref != null ? s.ventas_ref * cfg.margen : null);
   const meur = (v) => (v == null || isNaN(v) ? '—' : n1.format(v) + ' M€');
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const ok = (id) => { const g = dash.data(id); return g.status === 'ok' ? g.data : null; };
@@ -38,22 +40,45 @@
     });
   }
 
-  // 3. Valoración orientativa de los targets
+  // 3. Valoración orientativa de los targets: EBITDA × múltiplo = EV
+  const evc = (eb) => (eb == null ? null : eb * M.central);
   dash.draw('tb_valor', (el) => {
     const ts = ok('targets_score'), tg = ok('targets');
     if (!ts || !tg) return;
+    const f = (v) => (v == null ? '—' : n1.format(v));
     const rows = ts.slice().sort((a, b) => b.total - a.total).map((s) => {
       const t = tg.find((x) => x.empresa === s.empresa) || {};
-      const [lo, hi] = ev(s.ebitda_est);
-      return '<tr><td data-emp="' + esc(s.empresa) + '"></td><td class="rd-num">' + meur(s.ventas_ref) + '</td><td class="rd-num">' + meur(s.ebitda_est) +
-        '</td><td class="rd-num"><b>' + (lo == null ? '—' : n1.format(lo) + '–' + n1.format(hi) + ' M€') + '</b></td><td class="rd-mid">' + esc(t.compradores || '') + '</td></tr>';
+      const eb = ebOf(s); const [lo, hi] = ev(eb);
+      return '<tr><td data-emp="' + esc(s.empresa) + '"></td><td class="rd-num">' + f(s.ventas_ref) + '</td><td class="rd-num">' + Math.round(cfg.margen * 100) + '%</td><td class="rd-num"><b>' + (eb == null ? '—' : n2.format(eb)) +
+        '</b></td><td class="rd-num">' + x1(M.bajo) + '</td><td class="rd-num">' + f(lo) + '</td><td class="rd-num">' + x1(M.central) + '</td><td class="rd-num"><b>' + f(evc(eb)) +
+        '</b></td><td class="rd-num">' + x1(M.alto) + '</td><td class="rd-num">' + f(hi) + '</td></tr>';
     });
-    el.innerHTML = '<thead><tr><th>Empresa</th><th class="rd-num">Ventas</th><th class="rd-num">EBITDA est.</th><th class="rd-num">Valor empresa (EV)</th><th>Compradores naturales</th></tr></thead><tbody>' + rows.join('') + '</tbody>';
+    el.innerHTML = '<thead><tr><th>Empresa</th><th class="rd-num">Ventas</th><th class="rd-num">Margen EBITDA</th><th class="rd-num">EBITDA est.</th>' +
+      '<th class="rd-num">Múlt. bajo</th><th class="rd-num">EV bajo</th><th class="rd-num">Múlt. central</th><th class="rd-num">EV central</th><th class="rd-num">Múlt. alto</th><th class="rd-num">EV alto</th></tr></thead><tbody>' + rows.join('') + '</tbody>';
     el.querySelectorAll('td[data-emp]').forEach((td) => (RD && RD.nameBtn ? RD.nameBtn(td, td.dataset.emp) : (td.textContent = td.dataset.emp)));
   });
   dash.draw('valor_nota', (el) => {
-    el.innerHTML = 'EV = EBITDA estimado × múltiplo de <b>' + x1(M.bajo) + '</b> a <b>' + x1(M.alto) + '</b>. ' + esc(M.texto) +
-      ' Es un rango para ordenar y conversar, no una valoración: el EBITDA es estimado y no se ajusta deuda, caja ni calidad del negocio.';
+    el.innerHTML = 'Cifras en M€. <b>EV = EBITDA × múltiplo</b>. EBITDA = ventas × margen de referencia (' + Math.round(cfg.margen * 100) + '%), porque los targets no publican su EBITDA. Múltiplos: bajo <b>' + x1(M.bajo) + '</b>, central <b>' + x1(M.central) + '</b> y alto <b>' + x1(M.alto) + '</b>. ' + esc(M.texto) +
+      ' Es un rango para ordenar y conversar, no una valoración: no se ajusta deuda, caja ni calidad del negocio. De dónde salen los múltiplos: tabla de comparables de abajo.';
+  });
+
+  // 3b. Comparables: operaciones de la base con EV y EBITDA + referencias de mercado
+  dash.draw('tb_comps', (el) => {
+    const deals = ok('deals');
+    if (!deals) return;
+    const f = (v) => (v == null ? '—' : n1.format(v));
+    const ops = deals.filter((d) => d.ev && d.ebitda).map((d) => ({ tipo: 'Operación', nombre: d.comprador + ' → ' + d.target, fecha: d.fecha, ev: d.ev, eb: d.ebitda, mult: d.ev / d.ebitda, fuente: d.fuente }));
+    const refs = (M.refs || []).map((r) => ({ tipo: 'Referencia de mercado', nombre: r.nombre, fecha: '', ev: null, eb: null, mult: r.mult, fuente: r.url, fnombre: r.fuente }));
+    const all = ops.concat(refs);
+    const link = (r) => (/^https?:/.test(r.fuente || '') ? '<a href="' + esc(r.fuente) + '" target="_blank" rel="noopener">' + esc(r.fnombre || 'Fuente') + '</a>' : esc(r.fuente || ''));
+    const rows = all.map((r) => '<tr><td>' + esc(r.tipo) + '</td><td>' + esc(r.nombre) + '</td><td>' + esc(r.fecha) + '</td><td class="rd-num">' + f(r.ev) + '</td><td class="rd-num">' + f(r.eb) +
+      '</td><td class="rd-num"><b>' + x1(r.mult) + '</b></td><td>' + link(r) + '</td></tr>');
+    const ms = ops.map((o) => o.mult).sort((a, b) => a - b);
+    const med = ms.length ? (ms.length % 2 ? ms[ms.length >> 1] : (ms[ms.length / 2 - 1] + ms[ms.length / 2]) / 2) : null;
+    el.innerHTML = '<thead><tr><th>Tipo</th><th>Comparable</th><th>Fecha</th><th class="rd-num">EV (M€)</th><th class="rd-num">EBITDA (M€)</th><th class="rd-num">EV / EBITDA</th><th>Fuente</th></tr></thead><tbody>' +
+      (rows.join('') || '<tr><td colspan="7">Sin comparables todavía.</td></tr>') + '</tbody>' +
+      '<tfoot><tr><td colspan="7" class="rd-note">Operaciones de la base con EV y EBITDA publicados: <b>' + ops.length + '</b>' + (med != null ? ' · mediana <b>' + x1(med) + '</b>' : '') +
+      '. Con menos de unas diez operaciones el rango es solo orientativo; las referencias de mercado son medias de operaciones de todos los tamaños y suelen quedar por encima de lo que se paga por empresas pequeñas.</td></tr></tfoot>';
   });
 
   // 4. Validación de la puntuación con empresas que ya se vendieron
@@ -80,7 +105,7 @@
     const t = (ok('targets') || []).find((x) => x.empresa === p.target) || {};
     const c = (ok('compradores') || []).find((x) => x.comprador === p.comprador) || {};
     const ps = (ok('prop_score') || []).find((x) => x.id === p.id) || {};
-    const [lo, hi] = ev(ts.ebitda_est);
+    const eb = ebOf(ts); const [lo, hi] = ev(eb);
     const alt = (t.compradores || '').split(',').map((s) => s.trim()).filter((s) => s && !p.comprador.startsWith(s) && !s.startsWith(p.comprador.split(' ')[0]));
     const fila = (k, v) => '<tr><th>' + k + '</th><td>' + v + '</td></tr>';
     return '<div class="memo-k">Memo de originación · ' + esc(cfg.label) + ' · ' + esc(p.fecha_alta || '') + ' · ' + esc(p.id) + '</div>' +
@@ -89,8 +114,8 @@
       '<div class="memo-cifras">' +
       '<div><span>Solidez</span><b>' + (ps.total != null ? ps.total + '/10 · ' + esc(solidez(ps.total)) : '—') + '</b></div>' +
       '<div><span>Ventas target</span><b>' + meur(ts.ventas_ref) + '</b><i>' + esc(ts.origen_ventas || '') + '</i></div>' +
-      '<div><span>EBITDA estimado</span><b>' + meur(ts.ebitda_est) + '</b><i>margen ' + Math.round(cfg.margen * 100) + '%</i></div>' +
-      '<div><span>Valor orientativo (EV)</span><b>' + (lo == null ? '—' : n1.format(lo) + '–' + n1.format(hi) + ' M€') + '</b><i>' + x1(M.bajo) + '–' + x1(M.alto) + ' EBITDA</i></div>' +
+      '<div><span>EBITDA estimado</span><b>' + (eb == null ? '—' : n2.format(eb) + ' M€') + '</b><i>margen ' + Math.round(cfg.margen * 100) + '%</i></div>' +
+      '<div><span>EV central</span><b>' + meur(evc(eb)) + '</b><i>' + (eb == null ? '—' : n2.format(eb) + ' M€') + ' × ' + x1(M.central) + ' · rango ' + (lo == null ? '—' : n1.format(lo) + '–' + n1.format(hi) + ' M€') + '</i></div>' +
       '</div><table class="memo-t">' +
       fila('Tipo', esc(p.tipo_estrategico)) +
       fila('Target', esc([t.sede, t.subsector].filter(Boolean).join(' · ')) + '<br>' + esc(t.propiedad || '')) +
