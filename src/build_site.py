@@ -74,6 +74,8 @@ shutil.copy(os.path.join(here, 'themes', 'tema.css'), os.path.join(out, 'assets'
 for f in os.listdir(data_dir):
     if f.endswith('.json'):
         json.load(open(os.path.join(data_dir, f), encoding='utf-8'))  # valida
-        shutil.copy(os.path.join(data_dir, f), os.path.join(out, 'data', f))
+        src_f, dst_f = os.path.join(data_dir, f), os.path.join(out, 'data', f)
+        if os.path.abspath(src_f) != os.path.abspath(dst_f):
+            shutil.copy(src_f, dst_f)
 open(os.path.join(out, 'robots.txt'), 'w').write('User-agent: *\nDisallow: /\n')
 print('ok', out)
