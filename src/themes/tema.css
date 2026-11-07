@@ -47,10 +47,7 @@ body.sin-sector #dash-root > .rd, body.sin-sector #dash-root > .site-foot { disp
 #dash-root .site-bar select { font: inherit; padding: 6px 10px; border-radius: 8px; border: 1px solid #b08a3e; background: #fff; color: #13294b; }
 #dash-root .site-bar select[hidden] { display: none; }
 #dash-root .site-nota { color: var(--color-fg-muted, #5b6577); }
-@media (prefers-color-scheme: dark) {
-  #dash-root .site-bar label { color: #e6ecf5; }
-  #dash-root .site-bar select { background: #1b2433; color: #e6ecf5; }
-}
+
 
 /* Novedades */
 #dash-root .site-novedades { margin: 10px 0 4px; padding: 10px 14px; border-radius: 10px; background: #fbf7ee; border: 1px solid #ead9b3; font-size: 13px; }

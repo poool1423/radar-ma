@@ -42,7 +42,7 @@
 
   const swapText = (root, from, to) => {
     const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-    let n; while ((n = w.nextNode())) if (n.nodeValue.includes(from)) n.nodeValue = n.nodeValue.split(from).join(to);
+    let n; while ((n = w.nextNode())) if (n.nodeValue.includes(from) && !n.parentElement.closest('.site-bar, select, option')) n.nodeValue = n.nodeValue.split(from).join(to);
   };
 
   document.addEventListener('DOMContentLoaded', () => {
