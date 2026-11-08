@@ -132,14 +132,29 @@
       (p.modelo ? fila('Modelo', '<a href="' + esc(p.modelo) + '" download>Descargar el modelo en Excel (valoración, sinergias e impacto en el comprador)</a>') : '') +
       '</table><p class="memo-pie">Hipótesis propia elaborada con fuentes públicas; no es una recomendación de inversión. Valor orientativo con EBITDA estimado. Fuente del target: ' + esc(t.fuente || '—') + '</p>';
   };
-  dash.draw('memo_lista', (el) => {
-    const ps = ok('prop_score'), pr = ok('propuestas');
-    if (!ps || !pr) return;
-    const tot = (p) => (ps.find((x) => x.id === p.id) || {}).total || 0;
-    const sel = pr.filter((p) => tot(p) >= 7).sort((a, b) => tot(b) - tot(a));
-    el.innerHTML = '<span class="ml-t">Memos de originación (solidez 7 o más):</span>' + (sel.length ? sel.map((p) =>
-      '<a class="ml-b" target="_blank" rel="noopener" href="memo.html?s=' + encodeURIComponent(cfg.id) + '&id=' + encodeURIComponent(p.id) + '">' + (p.codigo ? 'Proyecto ' + esc(p.codigo) + ' · ' : '') + esc(p.comprador) + ' → ' + esc(p.target) + ' (' + tot(p) + '/10)</a>').join('') : '<span>ninguna propuesta llega todavía a 7/10.</span>');
-  });
+  // Botón "Memo" en cada tarjeta de propuesta con solidez de 7 o más
+  const ponerMemos = () => {
+    const ps = ok('prop_score');
+    if (!ps) return;
+    document.querySelectorAll('#propuestas-lista > article[id^="prop-"]').forEach((card) => {
+      if (card.querySelector('.rd-memo-btn')) return;
+      const pid = card.id.slice(5);
+      const sc = ps.find((x) => x.id === pid);
+      if (!sc || sc.total < 7) return;
+      const a = document.createElement('a');
+      a.className = 'rd-memo-btn';
+      a.href = 'memo.html?s=' + encodeURIComponent(cfg.id) + '&id=' + encodeURIComponent(pid);
+      a.target = '_blank'; a.rel = 'noopener';
+      a.title = 'Abrir el memo de originación (pitch book)';
+      a.textContent = 'Memo ↗';
+      const pair = card.querySelector('.rd-pair');
+      if (pair) pair.after(a); else card.prepend(a);
+    });
+  };
+  const lista = document.getElementById('propuestas-lista');
+  if (lista) new MutationObserver(ponerMemos).observe(lista, { childList: true });
+  document.addEventListener('radar:loaded', ponerMemos);
+
   document.addEventListener('click', (e) => {
     const b = e.target.closest('[data-memo]');
     if (b) {

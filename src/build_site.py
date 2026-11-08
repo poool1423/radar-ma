@@ -55,7 +55,7 @@ def before_section_end(body, sec_id, html):
 # Memos en Propuestas (tras el párrafo de introducción)
 i = body.index("id='propuestas'")
 j = body.index('</p>', i) + 4
-body = body[:j] + "\n    <div class='site-memos' data-draw='memo_lista'></div>" + body[j:]
+body = body[:j] + "\n    <p class='rd-note site-memo-nota'>Las propuestas con solidez de 7 o más tienen un memo de originación en formato pitch book: botón <b>Memo</b> junto al título.</p>" + body[j:]
 # Valoración orientativa en Targets
 body = before_section_end(body, 'targets', """
     <div class='rd-card site-valor'>
