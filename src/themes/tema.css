@@ -90,3 +90,8 @@ body.sin-sector #dash-root > .rd, body.sin-sector #dash-root > .site-foot { disp
 #dash-root .rd-memo-btn { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 600; line-height: 1; padding: 5px 10px; border-radius: 999px; background: #13294b; color: #fff; text-decoration: none; border: 1px solid #13294b; white-space: nowrap; align-self: center; }
 #dash-root .rd-memo-btn:hover { background: #b08a3e; border-color: #b08a3e; }
 #dash-root .site-memo-nota { margin: -4px 0 12px; }
+/* Filtros por columna */
+#dash-root .rd-table tr.rd-filtros th { background: #e9edf4; padding: 4px 6px; z-index: 1; }
+#dash-root .rd-filtros select, #dash-root .rd-filtros input { width: 100%; min-width: 70px; font: inherit; font-size: 12px; padding: 3px 4px; border: 1px solid #c7cfdc; border-radius: 6px; background: #fff; color: #13294b; font-weight: 400; }
+#dash-root .rd-filtros-info { font-size: 12px; color: #5b6577; margin: 4px 0 6px; }
+#dash-root .rd-filtros-limpiar { font: inherit; font-size: 12px; border: 0; background: none; color: #b08a3e; text-decoration: underline; cursor: pointer; padding: 0; }

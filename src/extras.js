@@ -169,3 +169,84 @@
     if (e.target.closest('.memo-imprimir')) window.print();
   });
 })();
+
+// Filtros por columna en las tablas de datos (Targets, Compradores, Precedentes, Cambios)
+(function () {
+  if (!(window.RD_CFG || {}).id) return;
+  const TABLAS = ['tb_targets', 'tb_compradores', 'tb_deals', 'tb_cambios'];
+  const norm = (s) => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim();
+  const setup = (tbody) => {
+    const table = tbody.closest('table');
+    const head = table && table.tHead && table.tHead.rows[0];
+    if (!head || table.dataset.filtros) return;
+    table.dataset.filtros = '1';
+    const fr = table.tHead.insertRow(-1);
+    fr.className = 'rd-filtros';
+    const ncol = head.cells.length;
+    const ctrls = [];
+    for (let i = 0; i < ncol; i++) {
+      const th = document.createElement('th');
+      fr.appendChild(th);
+      ctrls.push({ th, el: null, tipo: null });
+    }
+    const info = document.createElement('div');
+    info.className = 'rd-filtros-info';
+    const box = table.closest('.rd-tablebox') || table;
+    box.parentNode.insertBefore(info, box);
+
+    const celdas = () => [...tbody.rows].filter((r) => r.cells.length === ncol);
+    const aplicar = () => {
+      const rows = celdas();
+      let vis = 0;
+      rows.forEach((r) => {
+        const ok = ctrls.every((c, i) => {
+          if (!c.el || !c.el.value) return true;
+          const txt = norm(r.cells[i].textContent);
+          return c.tipo === 'select' ? txt === norm(c.el.value) : txt.includes(norm(c.el.value));
+        });
+        r.hidden = !ok;
+        if (ok) vis++;
+      });
+      const activos = ctrls.filter((c) => c.el && c.el.value).length;
+      info.innerHTML = 'Mostrando <b>' + vis + '</b> de ' + rows.length + ' filas' + (activos ? ' · <button type="button" class="rd-filtros-limpiar">Quitar filtros</button>' : ' · filtra con la fila bajo los títulos de las columnas');
+    };
+    const construir = () => {
+      const rows = celdas();
+      if (!rows.length) { aplicar(); return; } // tabla aún sin dibujar (pestaña oculta)
+      ctrls.forEach((c, i) => {
+        const vals = [...new Set(rows.map((r) => r.cells[i].textContent.trim()).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'es', { numeric: true }));
+        const largo = vals.some((v) => v.length > 60);
+        // El tipo de filtro se decide una vez, con la tabla completa, y no cambia después
+        const tipo = c.tipo || (!largo && vals.length > 0 && vals.length <= 20 && vals.length < rows.length ? 'select' : 'text');
+        const prev = c.el ? c.el.value : '';
+        if (tipo === 'select' && prev && !vals.includes(prev)) vals.push(prev);
+        if (tipo !== c.tipo) {
+          c.th.replaceChildren();
+          c.el = document.createElement(tipo === 'select' ? 'select' : 'input');
+          if (tipo === 'text') { c.el.type = 'search'; c.el.placeholder = 'Filtrar…'; c.el.addEventListener('input', aplicar); }
+          else c.el.addEventListener('change', aplicar);
+          c.el.setAttribute('aria-label', 'Filtrar ' + head.cells[i].textContent.trim());
+          c.th.appendChild(c.el);
+          c.tipo = tipo;
+        }
+        if (tipo === 'select') {
+          c.el.innerHTML = '<option value="">Todos</option>' + vals.map((v) => '<option>' + v.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</option>').join('');
+          c.el.value = prev;
+        } else c.el.value = prev;
+      });
+      fr.querySelectorAll('th').forEach((th) => { th.style.top = head.offsetHeight + 'px'; });
+      aplicar();
+    };
+    info.addEventListener('click', (e) => {
+      if (!e.target.closest('.rd-filtros-limpiar')) return;
+      ctrls.forEach((c) => { if (c.el) c.el.value = ''; });
+      aplicar();
+    });
+    new MutationObserver(construir).observe(tbody, { childList: true });
+    construir();
+  };
+  const iniciar = () => TABLAS.forEach((n) => document.querySelectorAll('tbody[data-draw="' + n + '"]').forEach(setup));
+  document.addEventListener('radar:loaded', iniciar);
+  // Al cambiar de pestaña la tabla se dibuja por primera vez: recalcular la altura de la cabecera
+  document.addEventListener('click', (e) => { if (e.target.closest('[data-tab]')) requestAnimationFrame(() => document.querySelectorAll('.rd-filtros th').forEach((th) => { const h = th.closest('thead').rows[0]; th.style.top = h.offsetHeight + 'px'; })); });
+})();
