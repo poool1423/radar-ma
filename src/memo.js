@@ -5,7 +5,6 @@
   const root = document.getElementById('pb');
   const MIN = 7;
   const SOL = [[9, 'Alta'], [7, 'Media-alta'], [5, 'Media'], [3, 'Media-baja'], [0, 'Baja']];
-  const CODIGOS = ['Orión', 'Vega', 'Lyra', 'Altair', 'Deneb', 'Rigel', 'Sirio', 'Antares', 'Capella', 'Polaris', 'Atlas', 'Cygnus'];
   const n1 = new Intl.NumberFormat('es', { maximumFractionDigits: 1 });
   const n2 = new Intl.NumberFormat('es', { maximumFractionDigits: 2 });
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -28,7 +27,7 @@
     const sol = (SOL.find(([m]) => total >= m) || [0, ''])[1];
     if (total < MIN) { fail('La propuesta ' + esc(p.comprador) + ' → ' + esc(p.target) + ' tiene una solidez de ' + total + '/10. Solo se preparan memos a partir de ' + MIN + '/10 (media-alta o alta).'); return; }
 
-    const codigo = 'Proyecto ' + (p.codigo || CODIGOS[(parseInt(String(p.id).replace(/\D/g, ''), 10) || 0) % CODIGOS.length]);
+    const codigo = 'Adquisición de ' + p.target + ' por ' + p.comprador;
     const M = cfg.multiplos;
     const dato = t.ventas_dato == null || t.ventas_dato === '' ? null : Number(t.ventas_dato);
     const est = t.empleados ? Number(t.empleados) * cfg.vpe : null;
@@ -59,7 +58,7 @@
     // 1. Portada
     pag++;
     let html = '<section class="slide cover"><div><div class="cv-k">Radar de originación M&amp;A · ' + esc(cfg.label) + '</div><h1>' + esc(codigo) + '</h1>' +
-      '<div class="cv-s">Idea de originación: posible adquisición de ' + esc(p.target) + ' por ' + esc(p.comprador) + '</div><div class="cv-line"></div>' +
+      '<div class="cv-s">Idea de originación · ' + esc(t.subsector || '') + (t.sede ? ' · ' + esc(t.sede) : '') + '</div><div class="cv-line"></div>' +
       '<div class="cv-meta">Solidez ' + total + '/10 · ' + esc(sol) + '<br>Operación ' + esc(String(p.tipo_estrategico || '').toLowerCase()) + '<br>' + esc(hoy) + '</div></div>' +
       '<div class="cv-foot"><span>Borrador para discusión · Estrictamente confidencial</span><span>Elaborado por Pol con fuentes públicas. Hipótesis para validar, no recomendación de inversión.</span></div></section>';
 
@@ -143,6 +142,6 @@
       '<p class="note" style="margin-top:5mm">Documento elaborado con fuentes públicas y gratuitas y estimaciones propias. Las cifras estimadas están marcadas como tales. No es una recomendación de inversión ni implica conocimiento de la intención de las empresas mencionadas.</p></div></div>');
 
     root.innerHTML = html;
-    document.title = codigo + ' · ' + p.comprador + ' → ' + p.target;
+    document.title = codigo + ' · Memo de originación';
   }).catch((e) => { console.error(e); fail('No se pudieron cargar los datos.'); });
 })();

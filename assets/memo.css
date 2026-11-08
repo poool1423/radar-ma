@@ -39,7 +39,7 @@ table.kv th { width: 34%; background: none; color: var(--navy); border-bottom: 1
 /* Portada */
 .cover { background: var(--navy); color: #fff; padding: 22mm 22mm 14mm; grid-template-rows: 1fr auto; }
 .cover .cv-k { color: #d9b56a; letter-spacing: .1em; text-transform: uppercase; font-size: 10pt; font-weight: 600; }
-.cover h1 { font-size: 40pt; margin: 6mm 0 4mm; font-weight: 700; }
+.cover h1 { font-size: 30pt; line-height: 1.15; max-width: 240mm; margin: 6mm 0 4mm; font-weight: 700; }
 .cover .cv-s { font-size: 15pt; color: #e6ecf5; max-width: 200mm; }
 .cover .cv-line { width: 60mm; height: 1.2mm; background: var(--gold); margin: 10mm 0 8mm; }
 .cover .cv-meta { font-size: 10.5pt; color: #c9d3e3; line-height: 1.7; }

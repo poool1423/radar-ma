@@ -18,7 +18,6 @@
   "pts_capacidad": 2,
   "por_que": "Encaje 3: café para hostelería premium, lo mismo que compró con Saula. Precedentes 2: Saula (2024) y cafeteras andaluzas (2026), y ha dicho que busca más. Capacidad 2: grupo de 929 M€ de ventas y ~69 M€ de EBITDA y Novell (37 M€) cabe en su ticket.",
   "modelo": "modelos/Pascual_Novell_modelo.xlsx",
-  "codigo": "Altair",
   "sinergias_ebitda": 1.49,
   "sinergias_nota": "Del modelo Excel: venta cruzada, compras de café verde y logística en Cataluña, a velocidad de crucero (año 3)."
  },
@@ -39,8 +38,7 @@
   "pts_encaje": 3,
   "pts_precedentes": 2,
   "pts_capacidad": 1,
-  "por_que": "Encaje 3: embutidor familiar pequeño, el perfil exacto que compra Veturia. Precedentes 2: cuatro compras, una de ellas en Osona. Capacidad 1: grupo mediano, no publica cifras.",
-  "codigo": "Deneb"
+  "por_que": "Encaje 3: embutidor familiar pequeño, el perfil exacto que compra Veturia. Precedentes 2: cuatro compras, una de ellas en Osona. Capacidad 1: grupo mediano, no publica cifras."
  },
  {
   "id": "A03",
@@ -59,8 +57,7 @@
   "pts_encaje": 3,
   "pts_precedentes": 1,
   "pts_capacidad": 2,
-  "por_que": "Encaje 3: mismo producto y misma comarca que Casademont. Precedentes 1: una compra conocida (Juan Luna). Capacidad 2: grupo porcino grande.",
-  "codigo": "Rigel"
+  "por_que": "Encaje 3: mismo producto y misma comarca que Casademont. Precedentes 1: una compra conocida (Juan Luna). Capacidad 2: grupo porcino grande."
  },
  {
   "id": "A04",
