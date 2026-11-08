@@ -134,6 +134,16 @@ html = f"""<!DOCTYPE html>
 </body>
 </html>
 """
+import hashlib
+_h = hashlib.sha1()
+for _f in ('dash-lite.js', 'sectores.js', 'extras.js', 'memo.js', 'tokens.css', 'memo.html', os.path.join('themes', 'tema.css'), os.path.join('themes', 'memo.css')):
+    _h.update(open(os.path.join(here, _f), 'rb').read())
+_h.update(page.encode('utf-8'))
+VER = _h.hexdigest()[:10]
+def versionar(s):
+    # Evita que el navegador use versiones viejas de JS/CSS tras cada publicación
+    return re.sub(r'(assets/(?!d3)[\w.-]+\.(?:js|css))(?!\?)', r'\1?v=' + VER, s)
+html = versionar(html)
 os.makedirs(os.path.join(out, 'assets'), exist_ok=True)
 os.makedirs(os.path.join(out, 'data'), exist_ok=True)
 open(os.path.join(out, 'index.html'), 'w', encoding='utf-8').write(html)
@@ -141,7 +151,7 @@ for f in ('dash-lite.js', 'sectores.js', 'extras.js', 'memo.js', 'tokens.css'):
     shutil.copy(os.path.join(here, f), os.path.join(out, 'assets', f))
 shutil.copy(os.path.join(here, 'themes', 'tema.css'), os.path.join(out, 'assets', 'tema.css'))
 shutil.copy(os.path.join(here, 'themes', 'memo.css'), os.path.join(out, 'assets', 'memo.css'))
-shutil.copy(os.path.join(here, 'memo.html'), os.path.join(out, 'memo.html'))
+open(os.path.join(out, 'memo.html'), 'w', encoding='utf-8').write(versionar(open(os.path.join(here, 'memo.html'), encoding='utf-8').read()))
 for dp, _, files in os.walk(data_dir):
     rel = os.path.relpath(dp, data_dir)
     if rel.startswith(('.', '_')) and rel != '.':

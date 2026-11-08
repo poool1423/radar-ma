@@ -132,28 +132,51 @@
       (p.modelo ? fila('Modelo', '<a href="' + esc(p.modelo) + '" download>Descargar el modelo en Excel (valoración, sinergias e impacto en el comprador)</a>') : '') +
       '</table><p class="memo-pie">Hipótesis propia elaborada con fuentes públicas; no es una recomendación de inversión. Valor orientativo con EBITDA estimado. Fuente del target: ' + esc(t.fuente || '—') + '</p>';
   };
-  // Botón "Memo" en cada tarjeta de propuesta con solidez de 7 o más
-  const ponerMemos = () => {
+  // Tarjetas de propuesta plegables + botón "Memo" (solidez de 7 o más)
+  const abiertas = new Set();
+  const prepararTarjetas = () => {
     const ps = ok('prop_score');
-    if (!ps) return;
     document.querySelectorAll('#propuestas-lista > article[id^="prop-"]').forEach((card) => {
-      if (card.querySelector('.rd-memo-btn')) return;
+      if (card.dataset.plegable) return;
+      card.dataset.plegable = '1';
       const pid = card.id.slice(5);
-      const sc = ps.find((x) => x.id === pid);
-      if (!sc || sc.total < 7) return;
-      const a = document.createElement('a');
-      a.className = 'rd-memo-btn';
-      a.href = 'memo.html?s=' + encodeURIComponent(cfg.id) + '&id=' + encodeURIComponent(pid);
-      a.target = '_blank'; a.rel = 'noopener';
-      a.title = 'Abrir el memo de originación (pitch book)';
-      a.textContent = 'Memo ↗';
-      const pair = card.querySelector('.rd-pair');
-      if (pair) pair.after(a); else card.prepend(a);
+      const head = card.querySelector('.rd-prop-head') || card;
+      const sc = ps && ps.find((x) => x.id === pid);
+      if (sc && sc.total >= 7) {
+        const a = document.createElement('a');
+        a.className = 'rd-memo-btn';
+        a.href = 'memo.html?s=' + encodeURIComponent(cfg.id) + '&id=' + encodeURIComponent(pid);
+        a.target = '_blank'; a.rel = 'noopener';
+        a.title = 'Abrir el memo de originación (pitch book)';
+        a.textContent = 'Memo ↗';
+        const pair = card.querySelector('.rd-pair');
+        if (pair) pair.after(a); else head.prepend(a);
+      }
+      const t = document.createElement('button');
+      t.type = 'button'; t.className = 'rd-toggle';
+      card.appendChild(t);
+      const abierta = abiertas.has(pid);
+      card.classList.toggle('rd-plegada', !abierta);
+      t.textContent = abierta ? 'Ocultar detalle ▴' : 'Ver detalle ▾';
+      t.setAttribute('aria-expanded', String(abierta));
     });
   };
   const lista = document.getElementById('propuestas-lista');
-  if (lista) new MutationObserver(ponerMemos).observe(lista, { childList: true });
-  document.addEventListener('radar:loaded', ponerMemos);
+  if (lista) {
+    new MutationObserver(prepararTarjetas).observe(lista, { childList: true });
+    lista.addEventListener('click', (ev) => {
+      if (ev.target.closest('a, .rd-link, select, input')) return;
+      const card = ev.target.closest('article[id^="prop-"]');
+      if (!card || !card.dataset.plegable) return;
+      const pid = card.id.slice(5);
+      const abrir = card.classList.contains('rd-plegada');
+      card.classList.toggle('rd-plegada', !abrir);
+      if (abrir) abiertas.add(pid); else abiertas.delete(pid);
+      const t = card.querySelector('.rd-toggle');
+      if (t) { t.textContent = abrir ? 'Ocultar detalle ▴' : 'Ver detalle ▾'; t.setAttribute('aria-expanded', String(abrir)); }
+    });
+  }
+  document.addEventListener('radar:loaded', prepararTarjetas);
 
   document.addEventListener('click', (e) => {
     const b = e.target.closest('[data-memo]');
