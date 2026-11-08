@@ -96,10 +96,23 @@ body.sin-sector #dash-root > .rd, body.sin-sector #dash-root > .site-foot { disp
 #dash-root .rd-filtros-info { font-size: 12px; color: #5b6577; margin: 4px 0 6px; }
 #dash-root .rd-filtros-limpiar { font: inherit; font-size: 12px; border: 0; background: none; color: #b08a3e; text-decoration: underline; cursor: pointer; padding: 0; }
 
-/* Tarjetas de propuesta plegables */
+/* Tarjetas de propuesta tipo tombstone, plegables */
 #dash-root #propuestas-lista { align-items: start; }
-#dash-root #propuestas-lista > article[data-plegable] { cursor: pointer; }
-#dash-root #propuestas-lista > article.rd-plegada > :not(.rd-prop-head):not(.rd-toggle) { display: none; }
-#dash-root #propuestas-lista > article.rd-plegada { padding-bottom: 10px; }
-#dash-root .rd-toggle { justify-self: start; align-self: start; font: inherit; font-size: 12px; color: #8a6d2e; background: none; border: 0; padding: 4px 0 0; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+#dash-root #propuestas-lista > article.rd-ts { padding: 0; overflow: hidden; display: flex; flex-direction: column; gap: 10px; cursor: pointer; border-radius: 12px; }
+#dash-root #propuestas-lista > article.rd-ts > .rd-prop-head { display: none; }
+#dash-root #propuestas-lista > article.rd-ts.rd-plegada > :not(.rd-ts-top):not(.rd-ts-body):not(.rd-ts-foot) { display: none; }
+#dash-root #propuestas-lista > article.rd-ts > :not(.rd-ts-top):not(.rd-ts-body):not(.rd-ts-foot) { margin-left: 18px; margin-right: 18px; }
+#dash-root .rd-ts-top { display: flex; justify-content: space-between; align-items: center; background: #13294b; color: #c9d3e3; font-size: 12px; padding: 9px 16px; border-bottom: 3px solid #b08a3e; }
+#dash-root .rd-ts-top b { color: #d9b56a; font-weight: 600; font-size: 13px; }
+#dash-root .rd-ts-body { text-align: center; padding: 8px 16px 2px; display: grid; gap: 8px; justify-items: center; }
+#dash-root .rd-ts-pair { font-size: 16px; font-weight: 600; color: #13294b; line-height: 1.35; }
+#dash-root .rd-ts-pair .rd-link { font-size: inherit; font-weight: inherit; }
+#dash-root .rd-ts-ev { display: grid; line-height: 1.1; }
+#dash-root .rd-ts-ev b { font-size: 28px; font-weight: 700; color: #13294b; letter-spacing: -.01em; }
+#dash-root .rd-ts-ev span { font-size: 12px; color: #5b6577; margin-top: 3px; }
+#dash-root .rd-ts-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+#dash-root .rd-ts-foot { display: flex; justify-content: space-between; align-items: center; background: #f6f3ec; border-top: 1px solid #ece6d8; padding: 8px 16px; margin-top: 4px; }
+#dash-root .rd-ts-foot .rd-toggle { padding: 0; }
+#dash-root .rd-toggle { font: inherit; font-size: 12px; color: #8a6d2e; background: none; border: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
 #dash-root .rd-toggle:hover { color: #13294b; }
+#dash-root .rd-ts .rd-meta { margin-bottom: 4px; }

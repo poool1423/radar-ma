@@ -132,33 +132,65 @@
       (p.modelo ? fila('Modelo', '<a href="' + esc(p.modelo) + '" download>Descargar el modelo en Excel (valoración, sinergias e impacto en el comprador)</a>') : '') +
       '</table><p class="memo-pie">Hipótesis propia elaborada con fuentes públicas; no es una recomendación de inversión. Valor orientativo con EBITDA estimado. Fuente del target: ' + esc(t.fuente || '—') + '</p>';
   };
-  // Tarjetas de propuesta plegables + botón "Memo" (solidez de 7 o más)
+  // Tarjetas de propuesta tipo "tombstone", plegables, con botón "Memo" (solidez de 7 o más)
   const abiertas = new Set();
+  const corto = (s) => String(s || '').split(/[(,;]/)[0].trim();
   const prepararTarjetas = () => {
-    const ps = ok('prop_score');
+    const ps = ok('prop_score'), pr = ok('propuestas'), ts = ok('targets_score'), tg = ok('targets');
+    if (!ps || !pr) return;
     document.querySelectorAll('#propuestas-lista > article[id^="prop-"]').forEach((card) => {
       if (card.dataset.plegable) return;
       card.dataset.plegable = '1';
+      card.classList.add('rd-ts');
       const pid = card.id.slice(5);
-      const head = card.querySelector('.rd-prop-head') || card;
-      const sc = ps && ps.find((x) => x.id === pid);
-      if (sc && sc.total >= 7) {
+      const p = pr.find((x) => x.id === pid) || {};
+      const sc = ps.find((x) => x.id === pid) || {};
+      const s = (ts || []).find((x) => x.empresa === p.target);
+      const t = (tg || []).find((x) => x.empresa === p.target) || {};
+      const eb = ebOf(s);
+      const evCentral = eb == null ? null : eb * M.central;
+      // Barra superior
+      const top = document.createElement('div');
+      top.className = 'rd-ts-top';
+      top.innerHTML = '<span>Adquisición · ' + esc(p.tipo_estrategico || '') + '</span><b>' + (sc.total != null ? sc.total + '/10' : '') + '</b>';
+      // Cuerpo: comprador → target, EV central y etiquetas
+      const body = document.createElement('div');
+      body.className = 'rd-ts-body';
+      const pair = card.querySelector('.rd-pair');
+      const par = document.createElement('div');
+      par.className = 'rd-ts-pair';
+      if (pair) par.appendChild(pair); else par.textContent = (p.comprador || '') + ' → ' + (p.target || '');
+      const ev = document.createElement('div');
+      ev.className = 'rd-ts-ev';
+      ev.innerHTML = '<b>' + (evCentral == null ? 'n.d.' : n1.format(evCentral) + ' M€') + '</b><span>EV central</span>';
+      const chips = document.createElement('div');
+      chips.className = 'rd-ts-chips';
+      const sol = card.querySelector('.rd-f-sol');
+      if (sol) chips.appendChild(sol);
+      const lugar = [corto(t.subsector), corto(t.sede)].filter(Boolean).join(' · ');
+      if (lugar) { const c = document.createElement('span'); c.className = 'rd-badge'; c.textContent = lugar; chips.appendChild(c); }
+      body.append(par, ev, chips);
+      // Pie: desplegar + memo
+      const foot = document.createElement('div');
+      foot.className = 'rd-ts-foot';
+      const tg2 = document.createElement('button');
+      tg2.type = 'button'; tg2.className = 'rd-toggle';
+      foot.appendChild(tg2);
+      if (sc.total >= 7) {
         const a = document.createElement('a');
         a.className = 'rd-memo-btn';
         a.href = 'memo.html?s=' + encodeURIComponent(cfg.id) + '&id=' + encodeURIComponent(pid);
         a.target = '_blank'; a.rel = 'noopener';
         a.title = 'Abrir el memo de originación (pitch book)';
         a.textContent = 'Memo ↗';
-        const pair = card.querySelector('.rd-pair');
-        if (pair) pair.after(a); else head.prepend(a);
+        foot.appendChild(a);
       }
-      const t = document.createElement('button');
-      t.type = 'button'; t.className = 'rd-toggle';
-      card.appendChild(t);
+      card.prepend(top, body);
+      card.appendChild(foot);
       const abierta = abiertas.has(pid);
       card.classList.toggle('rd-plegada', !abierta);
-      t.textContent = abierta ? 'Ocultar detalle ▴' : 'Ver detalle ▾';
-      t.setAttribute('aria-expanded', String(abierta));
+      tg2.textContent = abierta ? 'Ocultar detalle ▴' : 'Ver detalle ▾';
+      tg2.setAttribute('aria-expanded', String(abierta));
     });
   };
   const lista = document.getElementById('propuestas-lista');
