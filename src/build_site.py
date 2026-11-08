@@ -40,7 +40,11 @@ bar = """<div id='site-bar' class='site-bar'>
 aviso = ("<p class='site-aviso'>Radar de originación M&amp;A elaborado por Pol a partir de fuentes públicas y gratuitas. "
          "Las propuestas comprador → target son hipótesis propias para validar, no recomendaciones de inversión. "
          "Datos actualizados cada <b>lunes</b>.</p>\n")
-body = body.replace("  </header>\n", "  </header>\n  " + bar + "  " + aviso + "  <div class='site-novedades' data-draw='novedades'></div>\n", 1)
+body = body.replace("  </header>\n", "  </header>\n  " + bar + "  " + aviso, 1)
+# Novedades de los últimos 7 días: solo en la pestaña Cambios, arriba
+i = body.index("id='cambios'")
+j = body.index('>', i) + 1
+body = body[:j] + "\n    <div class='site-novedades' data-draw='novedades'></div>" + body[j:]
 
 def inject(body, marker, html, after=True):
     i = body.index(marker)
