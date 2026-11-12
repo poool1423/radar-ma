@@ -19,13 +19,13 @@
  },
  {
   "empresa": "Sala d'Especejament J. Sagué",
-  "sede": "Girona",
+  "sede": "La Cellera de Ter (Girona)",
   "comunidad": "Cataluña",
   "subsector": "Despiece porcino",
   "ventas_dato": 48.6,
   "anio_dato": 2024,
   "empleados": null,
-  "propiedad": "Por verificar en el BORME",
+  "propiedad": "Administrador único: Isaac Brusi Estebanell desde dic-2017 (sustituyó a José Sagué Espinet); accionistas por confirmar",
   "senal": "Sin señal pública",
   "compradores": "Vall Companys, Costa Food Group, Noel, Veturia",
   "pts_tamano": 2,
@@ -33,7 +33,7 @@
   "pts_senal": 0,
   "pts_datos": 1,
   "fuente": "https://ranking-empresas.eleconomista.es/SALA-ESPECEJAMENT-J-SAGUE.html",
-  "notas": "Ventas de 48,6 M€ (ranking elEconomista 2024). Falta confirmar propiedad y márgenes."
+  "notas": "Ventas de 48,6 M€ (ranking elEconomista 2024). BORME: el fundador dejó la administración en 2017 y en 2020 hubo una pequeña ampliación de capital y de objeto social. No se sabe si la familia Sagué sigue en el capital ni si es empresa familiar: señal en 0 hasta confirmarlo con las cuentas."
  },
  {
   "empresa": "Chocolates Simón Coll",
@@ -69,7 +69,7 @@
   "pts_senal": 1,
   "pts_datos": 1,
   "fuente": "https://ranking-empresas.eleconomista.es/EMBOTITS-MASOLIVER.html",
-  "notas": "Ventas aproximadas (~13 M€) deducidas de su posición en el ranking sectorial de elEconomista 2024."
+  "notas": "Ventas aproximadas (~13 M€) deducidas de su posición en el ranking sectorial de elEconomista 2024. BORME: administrador único Daniel Bosch Gasulla desde 2015 (cargo renovado en 2020 y 2023); falta confirmar qué papel tienen Daniel y Ferran Bosch Masoliver."
  },
  {
   "empresa": "Trias Galetes-Biscuits",
