@@ -10,14 +10,14 @@
     },
     alimentacion: {
       label: 'Alimentación y bebidas', dir: 'data/alimentacion/', vpe: 0.18, margen: 0.08, dia: 'martes', regiones: true,
-      rango: 'nov-2024 a jul-2026',
+      rango: 'nov-2024 a nov-2026',
       multiplos: { bajo: 6, central: 7.25, alto: 8.5, refs: [
         { nombre: 'Consumo y retail, España 2025 (media de operaciones)', mult: 8.5, fuente: 'EY-Parthenon', url: 'https://www.ey.com/es_es/newsroom/2026/03/la-actividad-de-m-a-en-consumo-y-retail-aumento-un-25-porciento-en-2025' },
         { nombre: 'Consumo y retail, España 2024 (media de operaciones)', mult: 8.4, fuente: 'EY', url: 'https://www.ey.com/es_es/newsroom/2025/02/aumento--numero-volumen-transacciones-sector-consumo-retail-2024' },
         { nombre: 'Consumo y retail, España media 2015–2025', mult: 9.9, fuente: 'EY-Parthenon', url: 'https://www.ey.com/es_es/newsroom/2026/03/la-actividad-de-m-a-en-consumo-y-retail-aumento-un-25-porciento-en-2025' },
         { nombre: 'Consumo y retail, Europa 2025 (media de operaciones)', mult: 9.0, fuente: 'EY-Parthenon', url: 'https://www.ey.com/es_es/newsroom/2026/03/la-actividad-de-m-a-en-consumo-y-retail-aumento-un-25-porciento-en-2025' },
       ], texto: '8,5x es la media de las operaciones de consumo y retail en España en 2025 según EY-Parthenon; 6x es un supuesto propio de descuento para empresas familiares pequeñas.' },
-      mult_ref: 8.5, mult_ref_fuente: 'media de consumo y retail en España en 2025 (EY-Parthenon); ninguna operación de la base publica EV y EBITDA',
+      mult_ref: 8.5, mult_ref_fuente: 'media de consumo y retail en España en 2025 (EY-Parthenon); en la base solo Deoleo (nov-2026, ~10,4x, muy por encima del rango del radar) publica EV y EBITDA',
       fuentes: 'Alimarket, capital-riesgo.es, Albia IMAP, prensa económica, ranking de elEconomista, ACCIÓ, BORME y webs públicas de las empresas.',
     },
   };

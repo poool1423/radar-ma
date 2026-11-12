@@ -16,11 +16,11 @@
   "alias": "Sala d'Especejament J. Sagué|Sagué",
   "rol": "Target",
   "sector": "Despiece porcino",
-  "sede": "Girona",
-  "fundada": "n.d.",
-  "propiedad": "Por verificar",
+  "sede": "La Cellera de Ter (Girona)",
+  "fundada": "1998",
+  "propiedad": "Por verificar (administrador único Isaac Brusi Estebanell desde 2017)",
   "descripcion": "Sala de despiece de carne de cerdo en la provincia de Girona.",
-  "claves": "48,6 M€ de ventas en 2024 (ranking elEconomista)|Puesto 43 de su sector en España",
+  "claves": "48,6 M€ de ventas en 2024 (ranking elEconomista)|Puesto 43 de su sector en España|Constituida en 1998; el fundador José Sagué dejó la administración en 2017",
   "fuente": "https://ranking-empresas.eleconomista.es/SALA-ESPECEJAMENT-J-SAGUE.html"
  },
  {
@@ -40,7 +40,7 @@
   "alias": "Embotits Masoliver|Masoliver",
   "rol": "Target",
   "sector": "Embutidos y grasas de cerdo",
-  "sede": "La Vall d'en Bas (Girona)",
+  "sede": "Sant Esteve d'en Bas (La Vall d'en Bas, Girona)",
   "fundada": "1984",
   "propiedad": "Familia Masoliver–Bosch",
   "descripcion": "Elabora embutidos curados y derivados del cerdo (manteca, aceite, chicharrones), frescos y congelados.",
@@ -164,8 +164,8 @@
   "fundada": "n.d.",
   "propiedad": "Familia Juan",
   "descripcion": "Horizontal: bollería y pan envasado de marca.",
-  "claves": "Compra de la marca y planta de Panrico a Adam Foods (Cataluña)|Busca: Galletera o bollera de marca de 10–40 M€",
-  "fuente": "pendiente"
+  "claves": "Acuerdo para comprar a Adam Foods la marca Panrico y su planta de Gulpilhares (Portugal)|Busca: Galletera o bollera de marca de 10–40 M€",
+  "fuente": "https://www.just-food.com/newsletters/vicky-foods-to-buy-panrico"
  },
  {
   "empresa": "Palacios Alimentación",
