@@ -10,7 +10,7 @@
     },
     alimentacion: {
       label: 'Alimentación y bebidas', dir: 'data/alimentacion/', vpe: 0.18, margen: 0.08, dia: 'martes', regiones: true,
-      rango: 'nov-2024 a nov-2026',
+      rango: 'ene-2022 a nov-2026',
       multiplos: { bajo: 6, central: 7.25, alto: 8.5, refs: [
         { nombre: 'Consumo y retail, España 2025 (media de operaciones)', mult: 8.5, fuente: 'EY-Parthenon', url: 'https://www.ey.com/es_es/newsroom/2026/03/la-actividad-de-m-a-en-consumo-y-retail-aumento-un-25-porciento-en-2025' },
         { nombre: 'Consumo y retail, España 2024 (media de operaciones)', mult: 8.4, fuente: 'EY', url: 'https://www.ey.com/es_es/newsroom/2025/02/aumento--numero-volumen-transacciones-sector-consumo-retail-2024' },
