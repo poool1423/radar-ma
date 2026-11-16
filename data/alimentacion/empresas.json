@@ -16,11 +16,11 @@
   "alias": "Sala d'Especejament J. Sagué|Sagué",
   "rol": "Target",
   "sector": "Despiece porcino",
-  "sede": "Girona",
-  "fundada": "n.d.",
-  "propiedad": "Por verificar",
+  "sede": "La Cellera de Ter (Girona)",
+  "fundada": "1998",
+  "propiedad": "Por verificar (administrador único Isaac Brusi Estebanell desde 2017)",
   "descripcion": "Sala de despiece de carne de cerdo en la provincia de Girona.",
-  "claves": "48,6 M€ de ventas en 2024 (ranking elEconomista)|Puesto 43 de su sector en España",
+  "claves": "48,6 M€ de ventas en 2024 (ranking elEconomista)|Puesto 43 de su sector en España|Constituida en 1998; el fundador José Sagué dejó la administración en 2017",
   "fuente": "https://ranking-empresas.eleconomista.es/SALA-ESPECEJAMENT-J-SAGUE.html"
  },
  {
@@ -40,7 +40,7 @@
   "alias": "Embotits Masoliver|Masoliver",
   "rol": "Target",
   "sector": "Embutidos y grasas de cerdo",
-  "sede": "La Vall d'en Bas (Girona)",
+  "sede": "Sant Esteve d'en Bas (La Vall d'en Bas, Girona)",
   "fundada": "1984",
   "propiedad": "Familia Masoliver–Bosch",
   "descripcion": "Elabora embutidos curados y derivados del cerdo (manteca, aceite, chicharrones), frescos y congelados.",
@@ -80,7 +80,7 @@
   "fundada": "n.d.",
   "propiedad": "Familia Pascual",
   "descripcion": "Horizontal: tostadores con marca regional fuerte en hostelería.",
-  "claves": "Ventas de 929 M€ y EBITDA de ~69 M€ en 2025|Café: 90,5 M€ en 2025 con Mocay, Jurado y Saula|Proyecto Aura: grupo de empresas autónomas; prepara compras en café, hidratación e internacional",
+  "claves": "Ventas de 929 M€ y EBITDA de ~69 M€ en 2025|Café: 90,5 M€ en 2025 con Mocay, Jurado, Saula, Zaidín y Ganada|Proyecto Aura: grupo de empresas autónomas; prepara compras en café, hidratación e internacional|Nov-2026: negocia integrar su negocio lácteo (482 M€) en Lactogal; vendió la planta de Gurb a Casa Tarradellas (abr-2026)",
   "fuente": "https://forbes.es/economia/902209/pascual-aspira-a-los-1-000-millones-en-2027-y-avanza-compras-para-crecer-en-cafe-hidratacion-e-internacional/"
  },
  {
@@ -104,8 +104,8 @@
   "fundada": "n.d.",
   "propiedad": "Grupo Benito Jiménez",
   "descripcion": "Horizontal: embutidos y elaborados cárnicos regionales.",
-  "claves": "Compras de embutidores familiares en Navarra, Soria y Cataluña (Galar, La Hoguera, Solà, Sierra de Toranzo)|Busca: Embutidor familiar de 5–30 M€ de ventas",
-  "fuente": "pendiente"
+  "claves": "Compras de embutidores familiares: Galar (2024), La Hoguera y Solà (ago-2025), Sierra de Toranzo (jul-2026)|Busca: Embutidor familiar de 5–30 M€ de ventas",
+  "fuente": "https://www.alimarket.es/alimentacion/noticia_amp/428708/veturia-meat-group-completa-la-cuarta-incorporacion-a-su-orbita"
  },
  {
   "empresa": "Royal A-ware",
@@ -140,8 +140,8 @@
   "fundada": "n.d.",
   "propiedad": "Familia Vall",
   "descripcion": "Vertical y horizontal: integración porcina y elaborados.",
-  "claves": "Compras de Agroalimentaria Chico (106 M€), Julián Martín y La Selva|Busca: Sala de despiece o elaborador cárnico de 20–100 M€",
-  "fuente": "pendiente"
+  "claves": "Compras de Agroalimentaria Chico (Burgos, 2025), Julián Martín y La Selva|Busca: Sala de despiece o elaborador cárnico de 20–100 M€",
+  "fuente": "https://www.alimarket.es/alimentacion/noticia_amp/411444/grupo-vall-companys-sigue-sumando-en-porcino"
  },
  {
   "empresa": "Costa Food Group",
@@ -152,7 +152,7 @@
   "fundada": "n.d.",
   "propiedad": "Familia Costa",
   "descripcion": "Horizontal: porcino integrado y embutidos curados.",
-  "claves": "Integración porcina; marca Casademont (Girona) en el grupo; compra de Juan Luna|Busca: Embutidor o elaborador cárnico de 10–50 M€",
+  "claves": "Integración porcina; marca Casademont (Girona) en el grupo; compró Juan Luna (56,5 M€) en 2022|Busca: Embutidor o elaborador cárnico de 10–50 M€",
   "fuente": "https://www.hirebase.org/company/casademont"
  },
  {
@@ -164,8 +164,8 @@
   "fundada": "n.d.",
   "propiedad": "Familia Juan",
   "descripcion": "Horizontal: bollería y pan envasado de marca.",
-  "claves": "Compra de la marca y planta de Panrico a Adam Foods (Cataluña)|Busca: Galletera o bollera de marca de 10–40 M€",
-  "fuente": "pendiente"
+  "claves": "Acuerdo para comprar a Adam Foods la marca Panrico y su planta de Gulpilhares (Portugal)|Busca: Galletera o bollera de marca de 10–40 M€",
+  "fuente": "https://www.just-food.com/newsletters/vicky-foods-to-buy-panrico"
  },
  {
   "empresa": "Palacios Alimentación",
@@ -202,5 +202,17 @@
   "descripcion": "Horizontal: chocolate y derivados del cacao.",
   "claves": "Trapa: 85 M€ en 2025 (+38%) y objetivo de 100 M€ en 2027|Busca: Chocolatero de 10–40 M€ con marca premium",
   "fuente": "https://forbes.es/economia/900756/chocolates-trapa-dispara-sus-ventas-un-38-hasta-85-millones-y-se-marca-llegar-a-los-100-millones-en-2027/"
+ },
+ {
+  "empresa": "Mahou San Miguel",
+  "alias": "Mahou San Miguel|Mahou",
+  "rol": "Comprador",
+  "sector": "Cerveza, agua y café",
+  "sede": "Madrid",
+  "fundada": "n.d.",
+  "propiedad": "n.d.",
+  "descripcion": "Adyacente: marcas de café para hostelería que vende con su red de distribución cervecera.",
+  "claves": "Ventas de 1.895,6 M€ y EBITDA de 306 M€ en 2025; inversión récord de 566 M€|Café 170º para hostelería desde 2025|Sep-2026: compra las marcas La Flor del Café y Gran Café Royale (Cataluña)",
+  "fuente": "https://www.alimarket.es/alimentacion/noticia_amp/428460/mahou-san-miguel-se-resiente-en-ventas-pero-alcanza-su-cifra-record-en-inversiones"
  }
 ]
