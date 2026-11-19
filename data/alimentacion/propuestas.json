@@ -108,13 +108,13 @@
   "sinergias": "Costes: más margen al despiezar su propio cerdo. Ingresos: acceso a los clientes de Sagué.",
   "accionistas": "Grupo familiar leridano con caja; compra de capacidad industrial.",
   "procesos": "Integración de la sala en la cadena porcina del grupo.",
-  "precedentes": "Vall Companys/Agroalimentaria Chico (Aranda de Duero, jul-2025). Vall Companys/La Selva.",
+  "precedentes": "Vall Companys/Agroalimentaria Chico (Aranda de Duero, jul-2025). Vall Companys/Joaquim Albertí – Embotits La Selva (20%, Campllong, Girona, may-2026).",
   "riesgo": "Se desconoce la propiedad de Sagué y no hay señal de venta.",
   "siguiente_paso": "Sin coste: averiguar en el BORME quién es el dueño de Sagué.",
   "pts_encaje": 2,
   "pts_precedentes": 1,
   "pts_capacidad": 2,
-  "por_que": "Encaje 2: el despiece es un eslabón de su cadena. Precedentes 1: compras cárnicas sin fecha confirmada. Capacidad 2: grupo grande."
+  "por_que": "Encaje 2: el despiece es un eslabón de su cadena. Precedentes 1: compras cárnicas confirmadas (Chico en 2025 y el 20% de La Selva en Girona en 2026), pero ninguna de una sala de despiece. Capacidad 2: grupo grande."
  },
  {
   "id": "A07",
