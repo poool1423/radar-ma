@@ -878,5 +878,170 @@
   "valor_nuevo": "51",
   "motivo": "4 operaciones añadidas y 8 verificadas con enlace (ninguna borrada: las 4 de confianza Baja se confirmaron)",
   "fuente": "Revisión del 19-nov-2026"
+ },
+ {
+  "id": "A081",
+  "fecha": "2026-11-23",
+  "entidad": "Palacios Alimentación → Grupo Ñaming (Ñaming y Resto Vite)",
+  "tipo": "Verificación",
+  "campo": "fuente; target; racional; confianza; notas",
+  "valor_anterior": "Prensa sectorial y listados de Albia IMAP (consultados 7-nov-2026; enlace por añadir)",
+  "valor_nuevo": "https://www.alimarket.es/alimentacion/noticia_amp/428677/palacios-suma-musculo-productivo-y-variedad-de-surtido-en-soluciones-refrigeradas-con-la-compra-de-grupo-naming",
+  "motivo": "Confirmada (Alimarket, 3-jul-2026); sube de Media a Alta. Cambios: target: Casual Food (Ñaming) → Grupo Ñaming (Ñaming y Resto Vite); racional: Compra a Green Arrow y Unigrains. → Palacios compra a Green Arrow Capital y Unigrains Iberia el especialista en sándwiches y ultrafrescos: su segunda compra del año en refrigerados.; confianza: Media → Alta; notas: Salida de fondos. → Alimarket (3-jul-2026) y ESM Magazine: vendedores Green Arrow Capital (GAC) y Unigrains Iberia. Sujeta a la CNMC. Sin precio, porcentaje, sede ni ventas en las fuentes gratuitas.",
+  "fuente": "https://www.alimarket.es/alimentacion/noticia_amp/428677/palacios-suma-musculo-productivo-y-variedad-de-surtido-en-soluciones-refrigeradas-con-la-compra-de-grupo-naming"
+ },
+ {
+  "id": "A082",
+  "fecha": "2026-11-23",
+  "entidad": "Bardinet (La Martiniquaise-Bardinet) → Street Liquors (Plata o Plomo)",
+  "tipo": "Verificación",
+  "campo": "fuente; comprador; pais; tipo_comprador; direccion; target; racional; confianza; notas",
+  "valor_anterior": "Prensa sectorial y listados de Albia IMAP (consultados 7-nov-2026; enlace por añadir)",
+  "valor_nuevo": "https://www.vinetur.com/20260527101497/bardinet-buys-40-stake-in-street-liquors.html",
+  "motivo": "Confirmada (Vinetur, 27-may-2026); sube de Media a Alta. El comprador es el grupo francés, no una sociedad española: pasa a Industrial extranjero e Inbound. Cambios: comprador: Bardinet España → Bardinet (La Martiniquaise-Bardinet); pais: España → Francia; tipo_comprador: Industrial nacional → Industrial extranjero; direccion: Doméstica → Inbound; target: Street Liquors → Street Liquors (Plata o Plomo); racional: Entrada minoritaria en marca de licores. → El grupo francés de Negrita, Pujol y Cacique compra el 40% de la licorera navarra para duplicar sus ventas en tres años con su red comercial.; confianza: Media → Alta; notas: None → Vinetur (27-may-2026) y Just Drinks. 40% con opción de ampliar en tres años; gestores: los hermanos Iñaki y Belate Beunza. Bardinet facturó 130,4 M€ en 2025 (sede en Burdeos). Sin precio ni ventas de Street Liquors.",
+  "fuente": "https://www.vinetur.com/20260527101497/bardinet-buys-40-stake-in-street-liquors.html"
+ },
+ {
+  "id": "A083",
+  "fecha": "2026-11-23",
+  "entidad": "Palacios Alimentación → Tortillas a tu Gusto",
+  "tipo": "Verificación",
+  "campo": "fuente; ubicacion; estructura; racional; confianza; notas",
+  "valor_anterior": "Prensa sectorial y listados de Albia IMAP (consultados 7-nov-2026; enlace por añadir)",
+  "valor_nuevo": "https://www.eldiario.es/la-rioja/palacios-compra-tortillas-gusto-soria_1_13218658.html",
+  "motivo": "Confirmada (elDiario.es, 13-may-2026); sube de Media a Alta. La fuente habla de toma de control, no del 100%. Cambios: ubicacion: Soria → Ólvega (Soria); estructura: 100% → Mayoría; racional: Palacios amplía su gama de tortillas. → Palacios toma el control de un elaborador soriano de tortillas, que será su tercer centro productivo de tortillas.; confianza: Media → Alta; notas: None → elDiario.es (13-may-2026) y Alimarket (3-jul-2026: \"tomaba el control\"). Porcentaje exacto, ventas, plantilla y vendedor no publicados. Palacios: unos 450 M€ de ventas y más de 1.300 empleados.",
+  "fuente": "https://www.eldiario.es/la-rioja/palacios-compra-tortillas-gusto-soria_1_13218658.html"
+ },
+ {
+  "id": "A084",
+  "fecha": "2026-11-23",
+  "entidad": "Royal A-ware → Global Dairy Ventures",
+  "tipo": "Verificación",
+  "campo": "fuente; ubicacion; comunidad; eslabon_target; tipo_estrategico; racional; confianza; notas",
+  "valor_anterior": "Prensa sectorial y listados de Albia IMAP (consultados 7-nov-2026; enlace por añadir)",
+  "valor_nuevo": "https://dairynews.today/es/news/royal-a-ware-acquires-spanish-distributor-global-dairy-ventures.html",
+  "motivo": "Confirmada (DairyNews, 9-feb-2026); sube de Media a Alta. GDV es un distribuidor de Barcelona: comunidad Cataluña, eslabón Distribución y tipo Vertical. Cambios: ubicacion: España → Barcelona; comunidad: n.d. → Cataluña; eslabon_target: Producción → Distribución; tipo_estrategico: Horizontal → Vertical; racional: Compra a Abac Capital. → La láctea holandesa compra a Abac Capital un distribuidor de quesos de Barcelona para crecer en el sur de Europa.; confianza: Media → Alta; notas: Salida de fondo. → DairyNews (9-feb-2026) y Just Food. Vendedor: Abac Capital. Distribuidor con clientes en España, Portugal e Italia. Precio no revelado; sin ventas ni porcentaje publicados.",
+  "fuente": "https://dairynews.today/es/news/royal-a-ware-acquires-spanish-distributor-global-dairy-ventures.html"
+ },
+ {
+  "id": "A085",
+  "fecha": "2026-11-23",
+  "entidad": "Unigrains Iberia → Haricaman (Harinas de Castilla-La Mancha)",
+  "tipo": "Verificación",
+  "campo": "fuente; fecha; target; ubicacion; racional; confianza; notas",
+  "valor_anterior": "Prensa sectorial y listados de Albia IMAP (consultados 7-nov-2026; enlace por añadir)",
+  "valor_nuevo": "https://www.alimarket.es/alimentacion/noticia_amp/429718/haricaman-da-entrada-a-unigrains-para-respaldar-con-mayor-solidez-sus-planes-de-inversion-y-desarrollo",
+  "motivo": "Confirmada (Alimarket, 28-jul-2026); sube de Media a Alta. Cambios: fecha: 2026 → 2026-07; target: Haricaman → Haricaman (Harinas de Castilla-La Mancha); ubicacion: Castilla-La Mancha → Provincia de Toledo; racional: Fondo agroalimentario entra en harinera familiar. → Unigrains entra en minoría en una harinera toledana para financiar su expansión exterior y la ampliación de su fábrica.; confianza: Media → Alta; notas: Lista Albia jul-2026. → Alimarket (28-jul-2026) y nota de Unigrains. Participación minoritaria sin porcentaje; sin precio ni ventas publicados.",
+  "fuente": "https://www.alimarket.es/alimentacion/noticia_amp/429718/haricaman-da-entrada-a-unigrains-para-respaldar-con-mayor-solidez-sus-planes-de-inversion-y-desarrollo"
+ },
+ {
+  "id": "A086",
+  "fecha": "2026-11-23",
+  "entidad": "Diana Capital → Aurora Intelligent Nutrition",
+  "tipo": "Verificación",
+  "campo": "fuente; fecha; ubicacion; comunidad; ventas; racional; confianza; notas",
+  "valor_anterior": "Prensa sectorial y listados de Albia IMAP (consultados 7-nov-2026; enlace por añadir)",
+  "valor_nuevo": "https://dianacapital.com/es/diana-capital-adquiere-el-46-de-aurora-intelligent-nutrition-para-impulsar-el-crecimiento-del-lider-espanol-en-nutricion-funcional/",
+  "motivo": "Confirmada con el comunicado del comprador (21-jul-2026); sube de Media a Alta. Cambios: fecha: 2026 → 2026-07; ubicacion: España → Sevilla; comunidad: n.d. → Andalucía; ventas: None → 43.0; racional: Entrada minoritaria relevante. → Diana Capital entra con el 46% mediante ampliación de capital en una nutricional sevillana para financiar capacidad, robotización y compras.; confianza: Media → Alta; notas: Lista Albia jul-2026. → Nota de Diana Capital (21-jul-2026) y Alimarket. Ventas 2025: 43 M€ (+20%); más de 300 empleados; exporta más del 40%. La familia fundadora conserva el resto y el CEO Fernando Moreno sigue. Cuarta inversión del fondo Diana Capital III. Sin precio.",
+  "fuente": "https://dianacapital.com/es/diana-capital-adquiere-el-46-de-aurora-intelligent-nutrition-para-impulsar-el-crecimiento-del-lider-espanol-en-nutricion-funcional/"
+ },
+ {
+  "id": "A087",
+  "fecha": "2026-11-23",
+  "entidad": "Nazca Capital → Bio Unicorn (Aldous)",
+  "tipo": "Verificación",
+  "campo": "fuente; fecha; target; ubicacion; comunidad; racional; confianza; notas",
+  "valor_anterior": "Prensa sectorial y listados de Albia IMAP (consultados 7-nov-2026; enlace por añadir)",
+  "valor_nuevo": "https://www.alimarket.es/alimentacion/noticia_amp/429903/nazca-se-hace-con-el-control-de-la-especialista-en-complementos-nutricionales-aldous",
+  "motivo": "Confirmada (Alimarket, 31-jul-2026); sube de Media a Alta. Cambios: fecha: 2026 → 2026-07; target: Aldous → Bio Unicorn (Aldous); ubicacion: España → Almonacid del Marquesado (Cuenca); comunidad: n.d. → Castilla-La Mancha; racional: Fondo crea plataforma en suplementos. → Nazca toma el control de una marca digital de complementos nutricionales que espera superar los 40 M€ en 2026 y construir planta propia.; confianza: Media → Alta; notas: Lista Albia jul-2026. → Alimarket (31-jul-2026): fondo Nazca Small Cap II, participación mayoritaria. Sale el socio KM Zero Food Innovation Hub; el CEO Antonio Pellón mantiene una participación relevante. Prevé más de 40 M€ de ventas en 2026, casi el doble que en 2025 (cifra de 2025 no publicada). Sin precio.",
+  "fuente": "https://www.alimarket.es/alimentacion/noticia_amp/429903/nazca-se-hace-con-el-control-de-la-especialista-en-complementos-nutricionales-aldous"
+ },
+ {
+  "id": "A088",
+  "fecha": "2026-11-23",
+  "entidad": "Henkell Freixenet → Freixenet (50% restante)",
+  "tipo": "Verificación",
+  "campo": "fuente; fecha; racional; confianza; notas",
+  "valor_anterior": "Prensa sectorial y listados de Albia IMAP (consultados 7-nov-2026; enlace por añadir)",
+  "valor_nuevo": "https://www.alimarket.es/alimentacion/noticia_amp/422564/la-alemana-henkell-alcanza-el-100--de-freixenet-tras-comprar-el-50--a-la-familia-ferrer-y-jose-luis-bonet",
+  "motivo": "Confirmada (Alimarket, 4-mar-2026); sube de Media a Alta. Cambios: fecha: 2026 → 2026-03; racional: El socio alemán se queda con el 100% de la familia catalana. → Henkell compra el 50% que conservaban la familia Ferrer (42,5%) y José Luis Bonet (7,5%) y se queda con el 100% de Freixenet.; confianza: Media → Alta; notas: Salida de las ramas familiares. → Alimarket (4-mar-2026): formalizada el 2-mar-2026. Vendedores: familia Ferrer (42,5%) y José Luis Bonet (7,5%); Pedro Ferrer queda como presidente honorario. Freixenet: 738 empleados. Henkell Freixenet facturó 1.250 M€ (grupo). Sin precio.",
+  "fuente": "https://www.alimarket.es/alimentacion/noticia_amp/422564/la-alemana-henkell-alcanza-el-100--de-freixenet-tras-comprar-el-50--a-la-familia-ferrer-y-jose-luis-bonet"
+ },
+ {
+  "id": "A089",
+  "fecha": "2026-11-23",
+  "entidad": "Boiron → Hivital Labs",
+  "tipo": "Nuevo",
+  "campo": "Operación",
+  "valor_anterior": "",
+  "valor_nuevo": "id 52 (2026-11)",
+  "motivo": "Un laboratorio farmacéutico francés compra el 100% de una marca catalana de complementos (13 M€) con el fundador al frente: muestra apetito extranjero por pymes catalanas de nutrición.",
+  "fuente": "https://www.lyonmag.com/article/154949/boiron-rachete-l-espagnol-hivital-labs-pour-grandir-dans-les-complements-alimentaires"
+ },
+ {
+  "id": "A090",
+  "fecha": "2026-11-23",
+  "entidad": "Palacios Alimentación",
+  "tipo": "Dato",
+  "campo": "tamano",
+  "valor_anterior": "Compras de Tortillas a tu Gusto y Casual Food (Ñaming) en 2026",
+  "valor_nuevo": "Unos 450 M€ de ventas y más de 1.300 empleados; compras de Tortillas a tu Gusto (Ólvega, Soria; may-2026) y Grupo Ñaming (sándwiches y ultrafrescos; jul-2026, a Green Arrow y Unigrains)",
+  "motivo": "Compras fechadas y con fuente tras verificar las operaciones 3 y 10; tamaño del grupo según elDiario.es",
+  "fuente": "https://www.alimarket.es/alimentacion/noticia_amp/428677/palacios-suma-musculo-productivo-y-variedad-de-surtido-en-soluciones-refrigeradas-con-la-compra-de-grupo-naming"
+ },
+ {
+  "id": "A091",
+  "fecha": "2026-11-23",
+  "entidad": "Palacios Alimentación",
+  "tipo": "Dato",
+  "campo": "fuente",
+  "valor_anterior": "pendiente",
+  "valor_nuevo": "https://www.alimarket.es/alimentacion/noticia_amp/428677/palacios-suma-musculo-productivo-y-variedad-de-surtido-en-soluciones-refrigeradas-con-la-compra-de-grupo-naming",
+  "motivo": "La fuente estaba pendiente",
+  "fuente": "https://www.alimarket.es/alimentacion/noticia_amp/428677/palacios-suma-musculo-productivo-y-variedad-de-surtido-en-soluciones-refrigeradas-con-la-compra-de-grupo-naming"
+ },
+ {
+  "id": "A092",
+  "fecha": "2026-11-23",
+  "entidad": "Unigrains Iberia",
+  "tipo": "Dato",
+  "campo": "tamano",
+  "valor_anterior": "Minoritaria en Haricaman (2026); salida de Casual Food (Ñaming) vendida a Palacios",
+  "valor_nuevo": "Minoritaria en Haricaman (Toledo, jul-2026); salida de Grupo Ñaming, vendido a Palacios en jul-2026",
+  "motivo": "Operaciones fechadas tras verificar las operaciones 3 y 16",
+  "fuente": "https://www.alimarket.es/alimentacion/noticia_amp/429718/haricaman-da-entrada-a-unigrains-para-respaldar-con-mayor-solidez-sus-planes-de-inversion-y-desarrollo"
+ },
+ {
+  "id": "A093",
+  "fecha": "2026-11-23",
+  "entidad": "Unigrains Iberia",
+  "tipo": "Dato",
+  "campo": "fuente",
+  "valor_anterior": "pendiente",
+  "valor_nuevo": "https://www.alimarket.es/alimentacion/noticia_amp/429718/haricaman-da-entrada-a-unigrains-para-respaldar-con-mayor-solidez-sus-planes-de-inversion-y-desarrollo",
+  "motivo": "La fuente estaba pendiente",
+  "fuente": "https://www.alimarket.es/alimentacion/noticia_amp/429718/haricaman-da-entrada-a-unigrains-para-respaldar-con-mayor-solidez-sus-planes-de-inversion-y-desarrollo"
+ },
+ {
+  "id": "A094",
+  "fecha": "2026-11-23",
+  "entidad": "Fichas de empresa",
+  "tipo": "Dato",
+  "campo": "Palacios Alimentación y Unigrains Iberia",
+  "valor_anterior": "",
+  "valor_nuevo": "Claves y fuente actualizadas",
+  "motivo": "Compras fechadas y fuentes que estaban pendientes",
+  "fuente": "Revisión del 23-nov-2026"
+ },
+ {
+  "id": "A095",
+  "fecha": "2026-11-23",
+  "entidad": "Biblioteca de precedentes",
+  "tipo": "Base",
+  "campo": "Nº operaciones",
+  "valor_anterior": "51",
+  "valor_nuevo": "52",
+  "motivo": "1 operación añadida y 8 verificadas con enlace: ya no queda ninguna con \"enlace por añadir\" (ninguna borrada: todas eran de confianza Media y se confirmaron)",
+  "fuente": "Revisión del 23-nov-2026"
  }
 ]
