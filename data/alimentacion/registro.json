@@ -1043,5 +1043,71 @@
   "valor_nuevo": "52",
   "motivo": "1 operación añadida y 8 verificadas con enlace: ya no queda ninguna con \"enlace por añadir\" (ninguna borrada: todas eran de confianza Media y se confirmaron)",
   "fuente": "Revisión del 23-nov-2026"
+ },
+ {
+  "id": "A096",
+  "fecha": "2026-11-26",
+  "entidad": "Aviko (Royal Cosun) → Eurofrits",
+  "tipo": "Nuevo",
+  "campo": "Operación",
+  "valor_anterior": "",
+  "valor_nuevo": "id 53 (2026-02)",
+  "motivo": "Operación de 2026 que no estaba en la base: Aviko pasa del 25% al 100% de un fabricante español de patata congelada",
+  "fuente": "https://www.potatopro.com/es/news/2026/españa-aviko-adquiere-la-participación-restante-en-eurofrits"
+ },
+ {
+  "id": "A097",
+  "fecha": "2026-11-26",
+  "entidad": "SARIA → Bioscor",
+  "tipo": "Nuevo",
+  "campo": "Operación",
+  "valor_anterior": "",
+  "valor_nuevo": "id 54 (2026-07)",
+  "motivo": "Operación de 2026 que no estaba en la base: un grupo familiar extranjero compra a un fondo un auxiliar de la industria cárnica",
+  "fuente": "https://saria.com/news/saria-to-expand-presence-in-spain-through-the-acquisition-of-bioscor/"
+ },
+ {
+  "id": "A098",
+  "fecha": "2026-11-26",
+  "entidad": "Noel Alimentaria → Garrudo Benito",
+  "tipo": "Nuevo",
+  "campo": "Operación",
+  "valor_anterior": "",
+  "valor_nuevo": "id 55 (2025-10)",
+  "motivo": "Operación de oct-2025 que no estaba en la base: primer precedente de Noel, comprador natural catalán de Sagué y Masoliver",
+  "fuente": "https://www.interempresas.net/Industria-Carnica/609776-Noel-adquiere-el-25-por-ciento-de-Garrudo-Benito-y-refuerza-su-presencia-en-el-iberico.html"
+ },
+ {
+  "id": "A099",
+  "fecha": "2026-11-26",
+  "entidad": "Noel Alimentaria",
+  "tipo": "Nuevo",
+  "campo": "Perfil de comprador",
+  "valor_anterior": null,
+  "valor_nuevo": "Embutidor catalán con entradas minoritarias progresivas",
+  "motivo": "Ya figuraba como comprador natural de Sagué y Masoliver sin perfil; con Garrudo Benito tiene su primer precedente. Solidez media-baja: una sola operación y minoritaria",
+  "fuente": "https://www.interempresas.net/Industria-Carnica/609776-Noel-adquiere-el-25-por-ciento-de-Garrudo-Benito-y-refuerza-su-presencia-en-el-iberico.html"
+ },
+ {
+  "id": "A100",
+  "fecha": "2026-11-26",
+  "entidad": "Fichas de empresa",
+  "tipo": "Dato",
+  "campo": "Noel Alimentaria",
+  "valor_anterior": "",
+  "valor_nuevo": "Ficha nueva de comprador",
+  "motivo": "Perfil de comprador nuevo en esta revisión",
+  "fuente": "https://www.alimarket.es/alimentacion/noticia_amp/429429/el-grupo-noel-supera-los-700-m--de-ingresos-y-acelera-en-exportacion-y-diversificacion"
+ },
+ {
+  "id": "A101",
+  "fecha": "2026-11-26",
+  "entidad": "Biblioteca de precedentes",
+  "tipo": "Base",
+  "campo": "Nº operaciones",
+  "valor_anterior": "52",
+  "valor_nuevo": "55",
+  "motivo": "3 operaciones añadidas (ninguna nueva del 16 al 26-nov aparte de las ya cargadas el 19 y el 23); ninguna verificación pendiente: no queda ninguna con \"enlace por añadir\" y la cuota semanal ya se cubrió el 23-nov",
+  "fuente": "Revisión del 26-nov-2026"
  }
 ]
