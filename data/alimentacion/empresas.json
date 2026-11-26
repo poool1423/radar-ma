@@ -30,9 +30,9 @@
   "sector": "Chocolate y cacao",
   "sede": "Sant Sadurní d'Anoia (Barcelona)",
   "fundada": "1982 (sociedad actual)",
-  "propiedad": "Familia Coll",
+  "propiedad": "Familia Coll (6ª generación; Maria Coll, consejera delegada)",
   "descripcion": "Fabrica y vende cacao, chocolate y confitería para consumo y uso profesional; dueña de la marca Chocolates Amatller.",
-  "claves": "Tramo de ventas 10–50 M€ y 100–500 empleados|Marcas Simón Coll y Amatller|Exporta a EE. UU.",
+  "claves": "Tramo de ventas 10–50 M€ y 100–500 empleados; ventas +17,45% en 2024|Marcas Simón Coll y Amatller|Exporta a EE. UU.|Familia chocolatera desde 1840",
   "fuente": "https://suppliers.catalonia.com/detail/chocolates-simon-coll-sa/803"
  },
  {
@@ -140,7 +140,7 @@
   "fundada": "n.d.",
   "propiedad": "Familia Vall",
   "descripcion": "Vertical y horizontal: integración porcina y elaborados.",
-  "claves": "Compras de Agroalimentaria Chico (Burgos, 2025), Julián Martín y La Selva|Busca: Sala de despiece o elaborador cárnico de 20–100 M€",
+  "claves": "Compras de Agroalimentaria Chico (Burgos, 2025) y Julián Martín; 20% de Embotits La Selva (Girona, may-2026)|Busca: Sala de despiece o elaborador cárnico de 20–100 M€",
   "fuente": "https://www.alimarket.es/alimentacion/noticia_amp/411444/grupo-vall-companys-sigue-sumando-en-porcino"
  },
  {
@@ -176,8 +176,8 @@
   "fundada": "n.d.",
   "propiedad": "n.d.",
   "descripcion": "Horizontal: platos preparados y tortillas.",
-  "claves": "Compras de Tortillas a tu Gusto y Casual Food (Ñaming) en 2026|Busca: Fabricante de platos preparados de 10–40 M€",
-  "fuente": "pendiente"
+  "claves": "Unos 450 M€ de ventas y más de 1.300 empleados; compras de Tortillas a tu Gusto (Ólvega, Soria; may-2026) y Grupo Ñaming (sándwiches y ultrafrescos; jul-2026, a Green Arrow y Unigrains)|Busca: Fabricante de platos preparados de 10–40 M€",
+  "fuente": "https://www.alimarket.es/alimentacion/noticia_amp/428677/palacios-suma-musculo-productivo-y-variedad-de-surtido-en-soluciones-refrigeradas-con-la-compra-de-grupo-naming"
  },
  {
   "empresa": "Unigrains Iberia",
@@ -188,8 +188,8 @@
   "fundada": "n.d.",
   "propiedad": "Unigrains (Francia)",
   "descripcion": "Financiera: minorías en agroalimentarias familiares.",
-  "claves": "Minoritaria en Haricaman (2026); salida de Casual Food (Ñaming) vendida a Palacios|Busca: Agroalimentaria familiar de 15–80 M€ con plan de crecimiento",
-  "fuente": "pendiente"
+  "claves": "Minoritaria en Haricaman (Toledo, jul-2026); salida de Grupo Ñaming, vendido a Palacios en jul-2026|Busca: Agroalimentaria familiar de 15–80 M€ con plan de crecimiento",
+  "fuente": "https://www.alimarket.es/alimentacion/noticia_amp/429718/haricaman-da-entrada-a-unigrains-para-respaldar-con-mayor-solidez-sus-planes-de-inversion-y-desarrollo"
  },
  {
   "empresa": "Europraline (Chocolates Trapa)",
@@ -214,5 +214,17 @@
   "descripcion": "Adyacente: marcas de café para hostelería que vende con su red de distribución cervecera.",
   "claves": "Ventas de 1.895,6 M€ y EBITDA de 306 M€ en 2025; inversión récord de 566 M€|Café 170º para hostelería desde 2025|Sep-2026: compra las marcas La Flor del Café y Gran Café Royale (Cataluña)",
   "fuente": "https://www.alimarket.es/alimentacion/noticia_amp/428460/mahou-san-miguel-se-resiente-en-ventas-pero-alcanza-su-cifra-record-en-inversiones"
+ },
+ {
+  "empresa": "Noel Alimentaria",
+  "alias": "Noel Alimentaria|Noel",
+  "rol": "Comprador",
+  "sector": "Embutidos, cocidos, platos preparados y salsas",
+  "sede": "Sant Joan les Fonts (Girona)",
+  "fundada": "n.d.",
+  "propiedad": "Familia Boix",
+  "descripcion": "Horizontal: entradas progresivas y minoritarias en elaboradores cárnicos familiares que le dan producto.",
+  "claves": "Más de 700 M€ de ingresos en 2025 y aceleración en exportación y diversificación|Oct-2025: 25% de Garrudo Benito (ibérico, Ávila), con plan para llegar al 50% en 2028|Marca Tap Tap en salsas, gazpachos y cremas",
+  "fuente": "https://www.alimarket.es/alimentacion/noticia_amp/429429/el-grupo-noel-supera-los-700-m--de-ingresos-y-acelera-en-exportacion-y-diversificacion"
  }
 ]

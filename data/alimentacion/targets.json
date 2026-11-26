@@ -15,7 +15,7 @@
   "pts_senal": 1,
   "pts_datos": 1,
   "fuente": "https://www.cio.com/article/2087755/cafes-novell-se-apoya-en-la-digitalizacion-para-incrementar-sus-ventas-y-su-presencia-en-el-canal-horeca.html",
-  "notas": "La fuente no fecha las cifras (37 M€ y 225 empleados): por eso datos 1."
+  "notas": "La fuente no fecha las cifras (37 M€ y 225 empleados): por eso datos 1. elEconomista la sitúa en el puesto 15 del sector café (CNAE 1083), por debajo del 10.º (38,5 M€): encaja con unos 37 M€."
  },
  {
   "empresa": "Sala d'Especejament J. Sagué",
@@ -43,7 +43,7 @@
   "ventas_dato": null,
   "anio_dato": null,
   "empleados": 150,
-  "propiedad": "Familia Coll (administrador único: Francisco Javier Coll Rosell); marcas Simón Coll y Amatller",
+  "propiedad": "Familia Coll: 6ª generación; Maria Coll es la consejera delegada (administrador único: Francisco Javier Coll Rosell); marcas Simón Coll y Amatller",
   "senal": "Débil: empresa familiar sin cambios societarios recientes",
   "compradores": "Europraline (Trapa), Natra, Vicky Foods",
   "pts_tamano": 1,
@@ -51,7 +51,7 @@
   "pts_senal": 1,
   "pts_datos": 1,
   "fuente": "https://suppliers.catalonia.com/detail/chocolates-simon-coll-sa/803",
-  "notas": "Solo hay tramos públicos (10–50 M€, 100–500 empleados): se supone 150 empleados para estimar."
+  "notas": "Solo hay tramos públicos (10–50 M€, 100–500 empleados): se supone 150 empleados para estimar. elEconomista: ventas +17,45% en 2024 y puesto 34 del sector CNAE 1082 (sin importe publicado)."
  },
  {
   "empresa": "Embotits Masoliver",
@@ -87,6 +87,6 @@
   "pts_senal": 1,
   "pts_datos": 0,
   "fuente": "https://ranking-empresas.eleconomista.es/TRIAS-GALETES-BISCUITS.html",
-  "notas": "Sin ventas públicas: hay que pedir las cuentas al Registro Mercantil."
+  "notas": "Sin ventas públicas: hay que pedir las cuentas al Registro Mercantil. Comparable: Talde compró el 100% de la galletera Elgorriaga (Ávila, 13,7 M€) en nov-2026, así que también hay comprador financiero para galleteras pequeñas."
  }
 ]
